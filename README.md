@@ -5,7 +5,6 @@ A list with the group members and their Github user names.
   Isabel Patulski - IsabelPatulski
 
 A link to your deployed Spring Boot Project (using a REAL MySQL Database)
- Missing
  
 A description of what you have committed your team to in the first sprint (backend and frontend)
   We've created the frontend repo and deployed with custom domain, also the backend is doployed 
