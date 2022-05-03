@@ -1,6 +1,7 @@
 package kea.sem3.jwtdemo.entity;
 
 
+import kea.sem3.jwtdemo.dto.PopularityRequest;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -8,8 +9,7 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@Getter
-@Setter
+@Getter @Setter
 @ToString
 
 public class Popularity {
@@ -20,9 +20,26 @@ public class Popularity {
 
     int numberOfResevation;
 
-    boolean popular;
+    boolean isPopular;
 
     @ManyToOne
     Movie likesMovie;
+
+    public Popularity() {
+    }
+
+    public Popularity(int id, int numberOfResevation, boolean isPopular) {
+        this.id = id;
+        this.numberOfResevation = numberOfResevation;
+        this.isPopular = isPopular;
+
+    }
+
+    public Popularity(PopularityRequest body){
+        this(body.getId(), body.getNumberOfResevation(), body.isPopular());
+    }
+
+
+
 
 }

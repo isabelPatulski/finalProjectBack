@@ -31,15 +31,6 @@ public class Movie {
     @OneToMany
     Genre movieGenre;*/
 
-
-    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
-   private Set<Reservation> reservations = new HashSet<>();
-
-
-    public void addReservation(Reservation res){
-        reservations.add(res);
-    }
-
     public Movie() {}
 
 
@@ -51,5 +42,19 @@ public class Movie {
 
     public Movie(MovieRequest body){
         this(body.getId(), body.getTitle(), body.getCategory());
+    }
+
+    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
+    private Set<Reservation> reservations = new HashSet<>();
+
+    public void addReservation(Reservation res){
+        reservations.add(res);
+    }
+
+    @OneToMany(mappedBy = "likesMovie", fetch = FetchType.EAGER)
+    private Set<Popularity> popularities = new HashSet<>();
+
+    public void addPopularity(Popularity pop) {
+        popularities.add(pop);
     }
 }
