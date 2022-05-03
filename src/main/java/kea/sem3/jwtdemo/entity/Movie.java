@@ -9,6 +9,8 @@ import org.springframework.boot.convert.DurationFormat;
 
 import javax.persistence.*;
 import java.time.Duration;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter @Setter
@@ -26,8 +28,17 @@ public class Movie {
     // Duration duration =Duration.between()
 
     /*TODO kan først laves, når genre er blevet lavet
-    @ManyToOne
+    @OneToMany
     Genre movieGenre;*/
+
+
+    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
+   private Set<Reservation> reservations = new HashSet<>();
+
+
+    public void addReservation(Reservation res){
+        reservations.add(res);
+    }
 
     public Movie() {}
 
