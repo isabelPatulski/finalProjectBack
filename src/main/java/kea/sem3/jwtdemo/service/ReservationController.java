@@ -25,7 +25,7 @@ public class ReservationController {
     @PostMapping
     Reservation createReservation (@RequestBody Reservation reservation) {return reservationRepository.save(reservation);}
 
-    @PutMapping("/{reservationId}/{costumerId}")
+    @PutMapping("/{reservationId}/costumer/{costumerId}")
     Reservation costumerReservations (
             @PathVariable int reservationId,
             @PathVariable int costumerId
