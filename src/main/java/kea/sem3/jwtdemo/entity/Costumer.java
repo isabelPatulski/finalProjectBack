@@ -22,9 +22,11 @@ public class Costumer {
     String email;
     int birthday;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "costumer")
-    private Set<Reservation> reservations = new HashSet <>();
+
+    @OneToMany (mappedBy = "costumerHasReserved", fetch = FetchType.EAGER)
+    /*En costumer kan have flere reservationer, derofr skal der laves en liste/set
+    af de reservationer som costumer har*/
+    private Set<Reservation> reservations = new HashSet<>();
 
 
     public Costumer(int id, String username, String surname, String email, int birthday) {
@@ -34,11 +36,17 @@ public class Costumer {
         this.birthday = birthday;
     }
 
+
+
     public Costumer() {
 
     }
 
-    public Set<Reservation> getReservations() {
+    /*public Set<Reservation> getReservations() {
         return reservations;
+    }*/
+
+    public void addCustomer(Reservation res){
+        reservations.add(res);
     }
 }

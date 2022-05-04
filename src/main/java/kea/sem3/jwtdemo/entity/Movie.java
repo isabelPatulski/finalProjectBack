@@ -45,12 +45,19 @@ public class Movie {
         this(body.getId(), body.getTitle(), body.getCategory());
     }
 
-    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
+    /*MappedBy skal stemmeovernes med Movie-Objektet
+    som er blevet instanzieret i Reservaation-klassen*/
+    @OneToMany (mappedBy = "movieReserved", fetch = FetchType.EAGER)
+    /*
+    En film kan blive reserveret flere gange(en film, flere reservationer)
+    derfor skal der være en liste/Set af alle de reservationer som en film har
+    */
     private Set<Reservation> reservations = new HashSet<>();
 
-    public void addReservation(Reservation res){
+    public void addMovieReservation(Reservation res){
         reservations.add(res);
     }
+
 
     @OneToMany(mappedBy = "likesMovie", fetch = FetchType.EAGER)
     private Set<Popularity> popularities = new HashSet<>();
