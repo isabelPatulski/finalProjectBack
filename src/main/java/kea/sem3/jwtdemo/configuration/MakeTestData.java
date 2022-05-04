@@ -1,6 +1,7 @@
 package kea.sem3.jwtdemo.configuration;
 
 import kea.sem3.jwtdemo.entity.*;
+import kea.sem3.jwtdemo.repositories.MovieRepository;
 import kea.sem3.jwtdemo.security.UserRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -16,24 +17,31 @@ public class MakeTestData implements ApplicationRunner {
 
 
     UserRepository userRepository;
+    MovieRepository movieRepository;
 
     public MakeTestData(UserRepository userRepository) {
         this.userRepository = userRepository;
     }
 
-    public  void makePlainUsers(){
+    public  void makePlainTestData(){
+        /*
         BaseUser user = new BaseUser("user", "user@a.dk", "test12");
-        user.addRole(Role.USER);
         BaseUser admin = new BaseUser("admin", "admin@a.dk", "test12");
-        admin.addRole(Role.ADMIN);
-
         BaseUser both = new BaseUser("user_admin", "both@a.dk", "test12");
-        both.addRole(Role.USER);
-        both.addRole(Role.ADMIN);
 
         userRepository.save(user);
         userRepository.save(admin);
         userRepository.save(both);
+
+
+         */
+        Movie movie1 = movieRepository.save(new Movie("The Green Man", "Horror"));
+        Movie movie2 = movieRepository.save(new Movie("Some Women Dancing", "Comedy"));
+        Movie movie3 = movieRepository.save(new Movie("In Captivity", "Thriller"));
+        Movie movie4 = movieRepository.save(new Movie("The Love Birds", "Romance"));
+        Movie movie5 = movieRepository.save(new Movie("Angry People Watching", "Action"));
+        Movie movie6 = movieRepository.save(new Movie("Space Walking", "Science Fiction"));
+
 
         System.out.println("########################################################################################");
         System.out.println("########################################################################################");
@@ -50,9 +58,8 @@ public class MakeTestData implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        userRepository.deleteAll();
-
-        makePlainUsers();
+        movieRepository.deleteAll();
+        makePlainTestData();
 
 
     }

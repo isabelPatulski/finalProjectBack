@@ -5,10 +5,13 @@ import kea.sem3.jwtdemo.dto.MovieRequest;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 import org.springframework.boot.convert.DurationFormat;
 
 import javax.persistence.*;
 import java.time.Duration;
+import java.time.LocalDateTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -20,11 +23,6 @@ public class Movie {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    String title;
-    String genre;
-
-
-
     //TODO: spørge om hjælp til dette hos lars.
     // Duration duration =Duration.between()
 
@@ -35,21 +33,37 @@ public class Movie {
     public Movie() {}
 
 
-    public Movie(int id, String title, String category) {
-        this.id = id;
+    public Movie(String title, String category) {
         this.title = title;
         this.genre = category;
     }
 
     public Movie(MovieRequest body){
-        this(body.getId(), body.getTitle(), body.getGenre());
+        this.title = body.getTitle();
+        this.genre = body.getGenre();
     }
+    @Column(length = 60)
+    String title;
 
+    @Column(length = 60)
+    String genre;
+
+    @CreationTimestamp
+    LocalDateTime created;
+
+    @UpdateTimestamp
+    LocalDateTime edited;
+
+    /*
     @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
     private Set<Reservation> reservations = new HashSet<>();
+
+
 
     public void addReservation(Reservation res){
         reservations.add(res);
     }
+
+     */
 
 }

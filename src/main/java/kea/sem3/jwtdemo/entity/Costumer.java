@@ -21,11 +21,13 @@ public class Costumer {
     String username;
     String email;
     int birthday;
-
+/*
     @JsonIgnore
     @OneToMany(mappedBy = "costumer")
     private Set<Reservation> reservations = new HashSet <>();
 
+
+ */
 
     public Costumer(int id, String username, String surname, String email, int birthday) {
         this.id = id;
@@ -37,8 +39,10 @@ public class Costumer {
     public Costumer() {
 
     }
-
+    /*
     public Set<Reservation> getReservations() {
         return reservations;
     }
+
+     */
 }
