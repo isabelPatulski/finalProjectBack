@@ -12,7 +12,6 @@ import java.util.Date;
 @Getter
 @Setter
 @ToString
-
 public class Reservation {
 
     @Id
