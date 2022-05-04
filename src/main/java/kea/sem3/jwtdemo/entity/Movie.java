@@ -42,7 +42,7 @@ public class Movie {
     }
 
     public Movie(MovieRequest body){
-        this(body.getId(), body.getTitle(), body.getCategory());
+        this(body.getId(), body.getTitle(), body.getGenre());
     }
 
     @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
