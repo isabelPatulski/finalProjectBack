@@ -12,6 +12,6 @@ import lombok.Setter;
 public class MovieRequest {
     private int id;
     private String title;
-    private String category;
+    private String genre;
 
 }
