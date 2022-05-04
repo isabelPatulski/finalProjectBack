@@ -52,10 +52,4 @@ public class Movie {
         reservations.add(res);
     }
 
-    @OneToMany(mappedBy = "likesMovie", fetch = FetchType.EAGER)
-    private Set<Popularity> popularities = new HashSet<>();
-
-    public void addPopularity(Popularity pop) {
-        popularities.add(pop);
-    }
 }
