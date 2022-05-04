@@ -21,7 +21,7 @@ public class Movie {
     int id;
 
     String title;
-    String category;
+    String genre;
 
 
 
@@ -38,7 +38,7 @@ public class Movie {
     public Movie(int id, String title, String category) {
         this.id = id;
         this.title = title;
-        this.category = category;
+        this.genre = category;
     }
 
     public Movie(MovieRequest body){
