@@ -1,4 +1,4 @@
-package kea.sem3.jwtdemo.service;
+package kea.sem3.jwtdemo.api;
 
 import kea.sem3.jwtdemo.entity.Costumer;
 import kea.sem3.jwtdemo.entity.Reservation;

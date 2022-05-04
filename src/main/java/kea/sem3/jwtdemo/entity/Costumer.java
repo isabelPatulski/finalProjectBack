@@ -18,8 +18,7 @@ public class Costumer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    String name;
-    String surname;
+    String username;
     String email;
     int birthday;
 
@@ -28,10 +27,9 @@ public class Costumer {
     private Set<Reservation> reservations = new HashSet <>();
 
 
-    public Costumer(int id, String name, String surname, String email, int birthday) {
+    public Costumer(int id, String username, String surname, String email, int birthday) {
         this.id = id;
-        this.name = name;
-        this.surname = surname;
+        this.username = username;
         this.email = email;
         this.birthday = birthday;
     }
