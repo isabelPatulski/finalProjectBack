@@ -24,6 +24,7 @@ public class Movie {
     String category;
 
 
+
     //TODO: spørge om hjælp til dette hos lars.
     // Duration duration =Duration.between()
 
