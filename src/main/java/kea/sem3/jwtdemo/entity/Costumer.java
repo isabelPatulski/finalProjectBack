@@ -1,6 +1,7 @@
 package kea.sem3.jwtdemo.entity;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import kea.sem3.jwtdemo.dto.CostumerRequest;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -36,6 +37,9 @@ public class Costumer {
 
     public Costumer() {
 
+    }
+
+    public Costumer(CostumerRequest body) {
     }
 
     public Set<Reservation> getReservations() {

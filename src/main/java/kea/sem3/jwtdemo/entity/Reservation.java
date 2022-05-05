@@ -6,6 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+import java.time.LocalDate;
 import java.util.Date;
 
 @Entity
@@ -21,13 +22,13 @@ public class Reservation {
     int dateID;
     int costumerId;
     //Skal vidst lige laves til date/time
-    int date;
+    LocalDate date;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="costumer_id", referencedColumnName = "id")
+    @JoinColumn(name="costumerId", referencedColumnName = "id")
     private Costumer costumer;
 
-    public Reservation(int id, int movieId, int dateID, int costumerId, int date) {
+    public Reservation(int id, int movieId, int dateID, int costumerId, LocalDate date) {
         this.id = id;
         this.movieId = movieId;
         this.dateID = dateID;
