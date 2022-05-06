@@ -21,7 +21,7 @@ public class Movie {
     int id;
 
     String title;
-    String category;
+    String genre;
 
 
 
@@ -38,31 +38,18 @@ public class Movie {
     public Movie(int id, String title, String category) {
         this.id = id;
         this.title = title;
-        this.category = category;
+        this.genre = category;
     }
 
     public Movie(MovieRequest body){
-        this(body.getId(), body.getTitle(), body.getCategory());
+        this(body.getId(), body.getTitle(), body.getGenre());
     }
 
-    /*MappedBy skal stemmeovernes med Movie-Objektet
-    som er blevet instanzieret i Reservaation-klassen*/
-    @OneToMany (mappedBy = "movieReserved", fetch = FetchType.EAGER)
-    /*
-    En film kan blive reserveret flere gange(en film, flere reservationer)
-    derfor skal der være en liste/Set af alle de reservationer som en film har
-    */
+    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
     private Set<Reservation> reservations = new HashSet<>();
 
-    public void addMovieReservation(Reservation res){
+    public void addReservation(Reservation res){
         reservations.add(res);
     }
 
-
-    @OneToMany(mappedBy = "likesMovie", fetch = FetchType.EAGER)
-    private Set<Popularity> popularities = new HashSet<>();
-
-    public void addPopularity(Popularity pop) {
-        popularities.add(pop);
-    }
 }

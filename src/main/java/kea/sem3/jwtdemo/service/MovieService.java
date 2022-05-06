@@ -43,9 +43,9 @@ public class MovieService {
         }
 
         //PATCH for Category
-        public void updatePrice(int movieId,String newCategory){
+        public void updateGenre(int movieId,String newGenre){
             Movie movie = movieRepository.findById(movieId).orElseThrow(()-> new Client4xxException("No car with provided ID found"));
-            movie.setCategory(newCategory);
+            movie.setCategory(newGenre);
             movieRepository.save(movie);
         }
 
