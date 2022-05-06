@@ -9,11 +9,9 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class PopularityRequest {
 
+public class CinemaHallRequest {
     private int id;
-
-    private int numberOfResevation;
-
-    private boolean popular;
+    private int hallNumber;
+    private int level;
 }
