@@ -5,10 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter @Setter
@@ -18,18 +17,17 @@ public class CinemaHall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
     int hallNumber;
-    int seat;
-    int row;
 
-    public CinemaHall(int id, int hallNumber, int seat, int row) {
-        this.id = id;
-        this.hallNumber = hallNumber;
-        this.seat = seat;
-        this.row = row;
-    }
+    //altså etage
+    int level;
 
-    public CinemaHall() {
 
-    }
+    @OneToMany(mappedBy = "showingHall")
+    private Set<Showing> showings = new HashSet<>();
+
+    @ManyToOne
+    Seat cinemaHallSeat;
+
 }

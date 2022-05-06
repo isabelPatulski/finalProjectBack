@@ -10,25 +10,22 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
-@Entity
-@Getter @Setter
 @ToString
-
-
+@Setter @Getter
 public class ParentalRating {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    String type;
+    String ratingType;
     int ageLimit;
 
-    public ParentalRating(int id, String type, int ageLimit) {
-        this.id = id;
-        this.type = type;
+    public ParentalRating(String ratingType, int ageLimit) {
+        this.ratingType = ratingType;
         this.ageLimit = ageLimit;
     }
 
     public ParentalRating() {
 
     }
+
 }

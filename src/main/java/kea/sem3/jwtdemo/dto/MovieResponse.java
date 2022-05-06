@@ -20,6 +20,12 @@ public class MovieResponse {
 
     String title;
     String genre;
+    String description;
+    int price;
+    int ageLimit;
+    String rating;
+
+
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = JsonFormat.Shape.STRING)
     LocalDateTime created;
 
@@ -29,6 +35,10 @@ public class MovieResponse {
     public MovieResponse(Movie movie) {
         this.title = movie.getTitle();
         this.genre = movie.getGenre();
+        this.description = movie.getDescription();
+        this.price = movie.getPrice();
+        this.ageLimit = movie.getAgeLimit();
+        this.rating = movie.getRating();
 
     }
 

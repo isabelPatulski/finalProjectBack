@@ -1,9 +1,9 @@
 package kea.sem3.jwtdemo.entity;
 
-import kea.sem3.jwtdemo.security.UserWithPassword;
 import lombok.Getter;
 import lombok.Setter;
 
+import kea.sem3.jwtdemo.security.UserWithPassword;
 import javax.persistence.*;
 import javax.validation.constraints.Email;
 import java.util.ArrayList;

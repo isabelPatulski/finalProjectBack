@@ -29,10 +29,10 @@ public class MovieService {
             return new MovieResponse(newMovie);
         }
         public MovieResponse editMovie(MovieRequest movieToEdit, int movieId){
-            Movie movie = movieRepository.findById(movieId).orElseThrow(()-> new Client4xxException("No car with provided ID found"));
-            movie.setTitle(movieToEdit.getTitle());
-            movie.setGenre(movieToEdit.getGenre());
-            return new MovieResponse(movieRepository.save(movie));
+            Movie car = movieRepository.findById(movieId).orElseThrow(()-> new Client4xxException("No car with provided ID found"));
+            car.setTitle(movieToEdit.getTitle());
+            car.setGenre(movieToEdit.getGenre());
+            return new MovieResponse(movieRepository.save(car));
         }
 
         //PATCH method for Title

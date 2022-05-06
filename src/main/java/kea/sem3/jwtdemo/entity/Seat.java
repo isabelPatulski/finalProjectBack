@@ -5,10 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter @Setter
@@ -18,18 +17,19 @@ public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    int row;
-    int number;
-    boolean available;
+    int seatRow;
+    int seatNumber;
 
-    public Seat(int id, int row, int number, boolean available) {
-        this.id = id;
-        this.row = row;
-        this.number = number;
-        this.available = available;
+    public Seat(int seatRow, int SeatNumber) {
+
+        this.seatRow = seatRow;
+        this.seatNumber = seatNumber;
     }
 
     public Seat() {
-
     }
+
+    @OneToMany(mappedBy = "cinemaHallSeat")
+    private Set<CinemaHall> cinemaHallSeats = new HashSet<>();
+
 }
