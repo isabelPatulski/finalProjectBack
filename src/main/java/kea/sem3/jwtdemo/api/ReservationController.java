@@ -25,6 +25,7 @@ public class ReservationController {
     @PostMapping
     Reservation createReservation (@RequestBody Reservation reservation) {return reservationRepository.save(reservation);}
 
+    /*
     @PutMapping("/{reservationId}/costumer/{costumerId}")
     Reservation costumerReservations (
             @PathVariable int reservationId,
@@ -35,4 +36,6 @@ public class ReservationController {
         reservation.makeReservation(costumer);
         return reservationRepository.save(reservation);
     }
+
+     */
 }
