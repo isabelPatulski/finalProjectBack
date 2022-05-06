@@ -20,8 +20,7 @@ public class Seat {
     int seatRow;
     int seatNumber;
 
-    public Seat(int seatRow, int SeatNumber) {
-
+    public Seat(int seatRow, int seatNumber) {
         this.seatRow = seatRow;
         this.seatNumber = seatNumber;
     }
@@ -31,5 +30,9 @@ public class Seat {
 
     @OneToMany(mappedBy = "cinemaHallSeat")
     private Set<CinemaHall> cinemaHallSeats = new HashSet<>();
+
+
+    @ManyToMany(mappedBy = "seatsReserved")
+    private Set<Reservation> seatsReserved = new HashSet<>();
 
 }

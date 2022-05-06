@@ -19,24 +19,19 @@ public class Reservation {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
-    int movieId;
-    int dateID;
-    int costumerId;
-    //Skal vidst lige laves til date/time
-    int date;
 
-    public Reservation(int id, int movieId, int dateID, int costumerId, int date) {
-        this.id = id;
-        this.movieId = movieId;
-        this.dateID = dateID;
-        this.costumerId = costumerId;
-        this.date = date;
-    }
 
-    public Reservation() {
-
-    }
-
-    @ManyToMany(mappedBy = "seatsReserved")
+    @ManyToMany
+    @JoinTable(
+            //making a new column called showing_seats
+            name="showing_seats",
+            //and it's going to join, using the column called reservation_id
+            joinColumns = @JoinColumn(name="reservation_id"),
+            inverseJoinColumns =@JoinColumn(name = "seat_id")
+    )
     private Set<Seat> seatsReserved = new HashSet<>();
+
+    @ManyToOne
+    Showing showingReserved;
+
 }

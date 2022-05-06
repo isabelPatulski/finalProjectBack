@@ -34,6 +34,7 @@ public class Showing {
     @ManyToOne
     CinemaHall showingHall;
 
-
+    @OneToMany(mappedBy = "showingReserved")
+    private Set<Reservation> reservations = new HashSet<>();
 
 }
