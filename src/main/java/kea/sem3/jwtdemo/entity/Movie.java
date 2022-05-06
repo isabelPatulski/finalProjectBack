@@ -28,13 +28,6 @@ public class Movie{
     int id;
 
 
-    //TODO: spørge om hjælp til dette hos lars.
-    // Duration duration =Duration.between()
-
-    /*TODO kan først laves, når genre er blevet lavet
-    @OneToMany
-    Genre movieGenre;*/
-
     public Movie() {}
 
 
@@ -79,17 +72,7 @@ public class Movie{
     LocalDateTime edited;
 
 
-
-    /*
-    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
-    private Set<Reservation> reservations = new HashSet<>();
-
-
-
-    public void addReservation(Reservation res){
-        reservations.add(res);
-    }
-
-     */
+    @ManyToOne
+    Showing showingMovie;
 
 }
