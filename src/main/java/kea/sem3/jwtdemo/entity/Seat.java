@@ -18,14 +18,12 @@ public class Seat {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
     int seatRow;
-    int number;
-    boolean available;
+    int seatNumber;
 
-    public Seat(int id, int row, int number, boolean available) {
-        this.id = id;
-        this.seatRow = row;
-        this.number = number;
-        this.available = available;
+    public Seat(int seatRow, int SeatNumber) {
+
+        this.seatRow = seatRow;
+        this.seatNumber = seatNumber;
     }
 
     public Seat() {
