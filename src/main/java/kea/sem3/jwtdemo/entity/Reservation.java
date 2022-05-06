@@ -45,7 +45,7 @@ public class Reservation {
         this.id = id;
         this.reservationCreated = reservationCreated;
         this.dateReserved = dateReserved;
-        movieReserved.addMovieReservation(this);
+        movieReserved.addReservation(this);
         costumerAdded.addCustomer(this);
 
     }

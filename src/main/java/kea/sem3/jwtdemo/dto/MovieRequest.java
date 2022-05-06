@@ -14,4 +14,5 @@ public class MovieRequest {
     private String title;
     private String genre;
 
+
 }

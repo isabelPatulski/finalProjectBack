@@ -35,17 +35,17 @@ public class Movie {
     public Movie() {}
 
 
-    public Movie(int id, String title, String category) {
+    public Movie(int id, String title, String genre) {
         this.id = id;
         this.title = title;
-        this.genre = category;
+        this.genre = genre;
     }
 
     public Movie(MovieRequest body){
         this(body.getId(), body.getTitle(), body.getGenre());
     }
 
-    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
+    @OneToMany (mappedBy = "movieReserved", fetch = FetchType.EAGER)
     private Set<Reservation> reservations = new HashSet<>();
 
     public void addReservation(Reservation res){
