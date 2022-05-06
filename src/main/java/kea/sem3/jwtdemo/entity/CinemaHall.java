@@ -17,21 +17,17 @@ public class CinemaHall {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
     int hallNumber;
-    int seat;
-    int seatRow;
 
-    public CinemaHall(int id, int hallNumber, int seat, int row) {
-        this.id = id;
-        this.hallNumber = hallNumber;
-        this.seat = seat;
-        this.seatRow = row;
-    }
+    //altså etage
+    int level;
 
-    public CinemaHall() {
-    }
 
     @OneToMany(mappedBy = "showingHall")
     private Set<Showing> showings = new HashSet<>();
+
+    @ManyToOne
+    Seat cinemaHallSeat;
 
 }

@@ -5,10 +5,9 @@ import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
+import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter @Setter
@@ -30,6 +29,9 @@ public class Seat {
     }
 
     public Seat() {
-
     }
+
+    @OneToMany(mappedBy = "cinemaHallSeat")
+    private Set<CinemaHall> cinemaHallSeats = new HashSet<>();
+
 }
