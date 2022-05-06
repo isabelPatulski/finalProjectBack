@@ -2,6 +2,7 @@ package kea.sem3.jwtdemo.entity;
 
 
 import kea.sem3.jwtdemo.dto.MovieRequest;
+import lombok.EqualsAndHashCode;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,6 +20,7 @@ import java.util.Set;
 
 @Entity
 @Getter @Setter
+@EqualsAndHashCode
 @ToString
 public class Movie{
     @Id
