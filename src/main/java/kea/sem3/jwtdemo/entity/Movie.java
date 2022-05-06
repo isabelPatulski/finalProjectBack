@@ -35,14 +35,13 @@ public class Movie {
     public Movie() {}
 
 
-    public Movie(int id, String title, String genre) {
-        this.id = id;
+    public Movie(String title, String genre) {
         this.title = title;
         this.genre = genre;
     }
 
     public Movie(MovieRequest body){
-        this(body.getId(), body.getTitle(), body.getGenre());
+        this(body.getTitle(), body.getGenre());
     }
 
     @OneToMany (mappedBy = "movieReserved", fetch = FetchType.EAGER)

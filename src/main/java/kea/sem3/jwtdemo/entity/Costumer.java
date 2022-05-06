@@ -23,14 +23,13 @@ public class Costumer {
     int birthday;
 
 
-    @OneToMany (mappedBy = "costumerHasReserved", fetch = FetchType.EAGER)
+    @OneToMany (mappedBy = "reservedByCustomer", fetch = FetchType.EAGER)
     /*En costumer kan have flere reservationer, derofr skal der laves en liste/set
     af de reservationer som costumer har*/
     private Set<Reservation> reservations = new HashSet<>();
 
 
-    public Costumer(int id, String username, String surname, String email, int birthday) {
-        this.id = id;
+    public Costumer(String username, String email, int birthday) {
         this.username = username;
         this.email = email;
         this.birthday = birthday;
@@ -41,6 +40,7 @@ public class Costumer {
     public Costumer() {
 
     }
+
 
     /*public Set<Reservation> getReservations() {
         return reservations;

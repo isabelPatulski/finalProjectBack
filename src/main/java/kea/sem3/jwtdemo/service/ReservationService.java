@@ -1,7 +1,9 @@
 package kea.sem3.jwtdemo.service;
 
+import kea.sem3.jwtdemo.dto.ReservationResponse;
 import kea.sem3.jwtdemo.entity.Costumer;
 import kea.sem3.jwtdemo.entity.Reservation;
+import kea.sem3.jwtdemo.error.Client4xxException;
 import kea.sem3.jwtdemo.repositories.CostumerRepository;
 import kea.sem3.jwtdemo.repositories.MovieRepository;
 import kea.sem3.jwtdemo.repositories.ReservationRepository;
@@ -23,16 +25,13 @@ public class ReservationService {
     }
 
 
-    public
-    //Get certain costumer
-    //Get certain movie
+    public ReservationResponse getReservation(int id){
+        return new ReservationResponse(reservationRepository.findById(id).orElseThrow(()-> new Client4xxException("No car reservation id:" + id)));
 
-    //Get certain reservation
+    }
 
-
-    //GetAlleReservation for a costumer
-    //GetALLReservations for a certaain movie
-    //Get a certain reservation
-    //Delete a certaain reservation
+    public List<Reservation> getAllReservation(){
+        return reservationRepository.findAll();
+    }
 
 }

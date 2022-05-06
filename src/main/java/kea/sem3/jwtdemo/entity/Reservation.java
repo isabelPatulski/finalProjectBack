@@ -34,20 +34,25 @@ public class Reservation {
 
     @ManyToOne(cascade= CascadeType.ALL)
     @JoinColumn(name= "costumer_id",referencedColumnName = "id")
-    private Costumer costumerHasReserved;
+    private Costumer reservedByCustomer;
 
 
     public Reservation() {
 
     }
 
-    public Reservation(int id, LocalDate reservationCreated, LocalDate dateReserved, Movie movieReserved, Costumer costumerAdded) {
-        this.id = id;
+    public Reservation(LocalDate reservationCreated, LocalDate dateReserved, Movie movieReserved, Costumer costumerAdded) {
         this.reservationCreated = reservationCreated;
         this.dateReserved = dateReserved;
         movieReserved.addReservation(this);
         costumerAdded.addCustomer(this);
 
+    }
+
+    public Reservation(LocalDate dateReserved, Movie movieReserved, Costumer reservedByCustomer) {
+        this.dateReserved = dateReserved;
+        this.movieReserved = movieReserved;
+        this.reservedByCustomer = reservedByCustomer;
     }
 
     /*public void makeReservation(Costumer costumer) {
