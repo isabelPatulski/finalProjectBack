@@ -1,6 +1,5 @@
 package kea.sem3.jwtdemo.entity;
 
-import kea.sem3.jwtdemo.security.UserWithPassword;
 import lombok.Getter;
 import lombok.Setter;
 

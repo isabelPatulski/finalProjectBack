@@ -2,7 +2,6 @@ package kea.sem3.jwtdemo.configuration;
 
 import kea.sem3.jwtdemo.entity.*;
 import kea.sem3.jwtdemo.repositories.MovieRepository;
-import kea.sem3.jwtdemo.security.UserRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
@@ -16,12 +15,12 @@ import java.time.Month;
 public class MakeTestData implements ApplicationRunner {
 
 
-    UserRepository userRepository;
+
     MovieRepository movieRepository;
 
-    public MakeTestData(UserRepository userRepository) {
-        this.userRepository = userRepository;
-    }
+    //public MakeTestData(UserRepository userRepository) {
+    // this.userRepository = userRepository;
+    //}
 
     public  void makePlainTestData(){
         /*

@@ -18,10 +18,11 @@ import java.util.Set;
 @Entity
 @Getter @Setter
 @ToString
-public class Movie {
+public class Movie{
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
 
     //TODO: spørge om hjælp til dette hos lars.
     // Duration duration =Duration.between()
@@ -53,6 +54,7 @@ public class Movie {
 
     @UpdateTimestamp
     LocalDateTime edited;
+
 
     /*
     @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
