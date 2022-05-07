@@ -1,3 +1,4 @@
+
 package kea.sem3.jwtdemo.entity;
 
 import lombok.Getter;
@@ -61,9 +62,12 @@ public class BaseUser implements UserWithPassword {
    public List<Role> getRoles() {
       return roles;
    }
+
    @Override
    public void addRole(Role role){
       roles.add(role);
    }
 
 }
+
+
