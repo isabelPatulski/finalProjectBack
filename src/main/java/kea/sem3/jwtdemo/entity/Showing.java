@@ -31,9 +31,23 @@ public class Showing {
     @OneToMany(mappedBy = "showingMovie")
     private Set<Movie> movies = new HashSet<>();
 
+    public void addMovies (Movie movie){
+        movies.add(movie);
+    }
+
+    public Showing() {
+    }
+
     @ManyToOne
     CinemaHall showingHall;
 
+    public Showing(int id, LocalDate date, LocalDateTime time, int price, String seatType, CinemaHall showingHall) {
+        this.id = id;
+        this.date = date;
+        this.time = time;
+        this.price = price;
+        this.seatType = seatType;
+        showingHall.addShowings(this);
 
-
+    }
 }
