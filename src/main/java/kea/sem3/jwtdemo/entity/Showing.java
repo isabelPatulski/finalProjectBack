@@ -58,4 +58,12 @@ public class Showing {
         this.seatType = seatType;
         showingHall.addShowings(this);
     }
+
+    //TODO skal denne klasse have som linjerne nedenunder???
+    /*public Car(CarRequest body) {
+        this.brand = body.getBrand();
+        this.model = body.getModel();
+        this.pricePrDay = body.getPricePrDay();
+        this.bestDiscount= body.getPricePrDay();
+    }*/
 }

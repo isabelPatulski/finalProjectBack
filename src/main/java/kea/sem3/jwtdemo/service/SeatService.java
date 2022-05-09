@@ -10,7 +10,7 @@ import java.util.List;
 
 public class SeatService {
     SeatRepository seatRepository;
-    SeatRequest seatRequest;
+
 
     public SeatService(SeatRepository seatRepository) {
         this.seatRepository = seatRepository;
