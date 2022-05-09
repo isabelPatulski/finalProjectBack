@@ -19,27 +19,13 @@ public class MakeTestData implements ApplicationRunner {
 
 
     MovieRepository movieRepository;
-    //UserRepository userRepository;
-    //public MakeTestData(UserRepository userRepository) {
-    // this.userRepository = userRepository;
-    //}
+
     public MakeTestData(MovieRepository movieRepository) {
        this.movieRepository = movieRepository;
     }
 
     public  void makePlainTestData(){
-        /*
-        BaseUser user = new BaseUser("user", "user@a.dk", "test12");
-        BaseUser admin = new BaseUser("admin", "admin@a.dk", "test12");
-        BaseUser both = new BaseUser("user_admin", "both@a.dk", "test12");
 
-        userRepository.save(user);
-        userRepository.save(admin);
-        userRepository.save(both);
-
-    public Movie(String title, String genre, int price, String description, String rating, int ageLimit) {
-
-         */
         movieRepository.save(new Movie("The Green Man", "Horror", 80, "This is a description", "PG-13", 13));
         movieRepository.save(new Movie("Some Women Dancing", "Comedy", 80, "This is a description", "PG", 7));
         movieRepository.save(new Movie("In Captivity", "Thriller", 80, "This is a description", "R", 18));
