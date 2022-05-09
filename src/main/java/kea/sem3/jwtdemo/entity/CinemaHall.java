@@ -1,6 +1,7 @@
 package kea.sem3.jwtdemo.entity;
 
 
+import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -25,9 +26,22 @@ public class CinemaHall {
 
 
     @OneToMany(mappedBy = "showingHall")
+    //@Setter(AccessLevel.NONE)
+    //@Getter(AccessLevel.NONE)
+
     private Set<Showing> showings = new HashSet<>();
+
+
+    public void addShowings (Showing show){
+        showings.add(show);
+    }
 
     @ManyToOne
     Seat cinemaHallSeat;
 
+    public CinemaHall(int id, int hallNumber, int level, Seat seat) {
+        this.id = id;
+        this.hallNumber = hallNumber;
+        this.level = level;
+    }
 }
