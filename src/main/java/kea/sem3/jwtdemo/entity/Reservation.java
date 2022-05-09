@@ -31,6 +31,10 @@ public class Reservation {
     )
     private Set<Seat> seatsReserved = new HashSet<>();
 
+    public void addSeats(Seat seat){
+        seatsReserved.add(seat);
+    }
+
     @ManyToOne
     Showing showingReserved;
 
