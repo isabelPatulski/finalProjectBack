@@ -9,13 +9,14 @@ import javax.persistence.*;
 import java.util.Date;
 import java.util.HashSet;
 import java.util.Set;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Getter
 @Setter
 @ToString
 public class Reservation {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
@@ -35,6 +36,15 @@ public class Reservation {
         seatsReserved.add(seat);
     }
 
+
+    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
+    private Set<Reservation> reservations = new HashSet<>();
+
+    public void addReservation(Reservation res){
+        reservations.add(res);
+    }
+
+    //mange reservationer til én film
     @ManyToOne
     Showing showingReserved;
 
