@@ -7,20 +7,17 @@ import kea.sem3.jwtdemo.repositories.MovieRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.params.ParameterizedTest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 
 import java.util.List;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.*;
 import static org.junit.jupiter.api.Assertions.*;
 
+@DataJpaTest
 class MovieServiceTest {
 
     @Autowired
     MovieRepository movieRepository;
-
 
     MovieService movieService;
 
@@ -40,27 +37,26 @@ class MovieServiceTest {
 
     @Test
     void getMovies() {
-        List<MovieResponse> movieResponse = movieService.getMovies();
-        assertEquals(2,movieResponse.size());
-        assertInstanceOf(MovieResponse.class,movieResponse.get(0));
-        assertThat(movieResponse, containsInAnyOrder(hasProperty("title", is("The Green Man")), hasProperty("Genre", is("Horror"))));
+        List<MovieResponse> allMovies = movieService.getMovies();
+        assertEquals(2,allMovies.size());
+        assertEquals("The Green Man", allMovies.get(0).getTitle());
     }
 
     @Test
     void getMovie() throws Exception{
-        MovieResponse movieResponse = movieService.getMovie(1);
+        MovieResponse movie = movieService.getMovie(1);
         String title = "The Green Man";
-        assertEquals(title, movieResponse.getTitle());
+        assertEquals(title, movie.getTitle());
     }
 
     @Test
     void addMovie() {
-
         Movie newMovie = new Movie("The Green Man 2", "Horror", 89, "This is a description", "R", 16);
         MovieResponse movieResponse = movieService.addMovie(new MovieRequest(newMovie.getTitle(), newMovie.getGenre(), newMovie.getDescription(), newMovie.getPrice(), newMovie.getAgeLimit(), newMovie.getRating()));
         assertEquals(3,movieResponse.getId());
         assertEquals("The Green Man 2",movieResponse.getTitle());
     }
+
 /*
     @Test
     void editMovie() {
@@ -73,7 +69,6 @@ class MovieServiceTest {
     @Test
     void updateGenre() {
     }
-
  */
 
     @Test
