@@ -20,7 +20,7 @@ public class SeatResponse {
         this.seatNumber=seat.getSeatNumber();
     }
 
-    public static List<SeatResponse> getMoviesFromEntities(List<Seat> seats){
+    public static List<SeatResponse> getSeatsFromEntities(List<Seat> seats){
         return seats.stream().map(seat-> new SeatResponse(seat)).collect(Collectors.toList());
     }
 
