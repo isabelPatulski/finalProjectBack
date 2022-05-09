@@ -35,6 +35,9 @@ public class Showing {
         movies.add(movie);
     }
 
+    public Showing() {
+    }
+
     @ManyToOne
     CinemaHall showingHall;
 

@@ -43,5 +43,6 @@ public class CinemaHall {
         this.id = id;
         this.hallNumber = hallNumber;
         this.level = level;
+        seat.addCinemaHall(this);
     }
 }

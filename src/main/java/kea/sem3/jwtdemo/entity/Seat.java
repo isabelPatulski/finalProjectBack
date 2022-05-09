@@ -32,8 +32,14 @@ public class Seat {
     public Seat() {
     }
 
+
+
     @OneToMany(mappedBy = "cinemaHallSeat")
     private Set<CinemaHall> cinemaHallSeats = new HashSet<>();
+
+    public void addCinemaHall (CinemaHall cinemaHall){
+        cinemaHallSeats.add(cinemaHall);
+    }
 
     public Seat(SeatRequest seatRequest) {
         this.id = seatRequest.getId();
