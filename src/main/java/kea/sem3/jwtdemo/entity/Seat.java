@@ -20,8 +20,8 @@ public class Seat {
     int seatRow;
     int seatNumber;
 
-    public Seat(int seatRow, int SeatNumber) {
-
+    public Seat(int id, int seatRow, int seatNumber) {
+        this.id = id;
         this.seatRow = seatRow;
         this.seatNumber = seatNumber;
     }
