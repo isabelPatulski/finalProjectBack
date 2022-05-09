@@ -1,8 +1,8 @@
 package kea.sem3.jwtdemo.api;
 
-import kea.sem3.jwtdemo.entity.Costumer;
+import kea.sem3.jwtdemo.entity.Customer;
 import kea.sem3.jwtdemo.entity.Reservation;
-import kea.sem3.jwtdemo.repositories.CostumerRepository;
+import kea.sem3.jwtdemo.repositories.CustomerRepository;
 import kea.sem3.jwtdemo.repositories.ReservationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +17,7 @@ public class ReservationController {
     ReservationRepository reservationRepository;
 
     @Autowired
-    CostumerRepository costumerRepository;
+    CustomerRepository customerRepository;
 
     @GetMapping
     List<Reservation> getReservations () {return reservationRepository.findAll();}
@@ -25,14 +25,14 @@ public class ReservationController {
     @PostMapping
     Reservation createReservation (@RequestBody Reservation reservation) {return reservationRepository.save(reservation);}
 
-    @PutMapping("/{reservationId}/costumer/{costumerId}")
-    Reservation costumerReservations (
+    @PutMapping("/{reservationId}/customer/{customerId}")
+    Reservation customerReservations (
             @PathVariable int reservationId,
-            @PathVariable int costumerId
+            @PathVariable int customerId
     ) {
         Reservation reservation = reservationRepository.findById(reservationId).get();
-        Costumer costumer = costumerRepository.findById(costumerId).get();
-        reservation.makeReservation(costumer);
+        Customer customer = customerRepository.findById(customerId).get();
+        reservation.makeReservation(customer);
         return reservationRepository.save(reservation);
     }
 }
