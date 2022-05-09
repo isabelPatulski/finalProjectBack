@@ -21,8 +21,7 @@ public class Seat {
     int seatRow;
     int seatNumber;
 
-    public Seat(int id, int seatRow, int seatNumber) {
-        this.id = id;
+    public Seat(int seatRow, int seatNumber) {
         this.seatRow = seatRow;
         this.seatNumber = seatNumber;
     }
@@ -32,10 +31,12 @@ public class Seat {
     public Seat() {
     }
 
-
-
     @OneToMany(mappedBy = "cinemaHallSeat")
     private Set<CinemaHall> cinemaHallSeats = new HashSet<>();
+
+
+    @ManyToMany(mappedBy = "seatsReserved")
+    private Set<Reservation> seatsReserved = new HashSet<>();
 
     public void addCinemaHall (CinemaHall cinemaHall){
         cinemaHallSeats.add(cinemaHall);

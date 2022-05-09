@@ -18,4 +18,5 @@ public class MovieRequest {
     private int ageLimit;
     private String rating;
 
+
 }

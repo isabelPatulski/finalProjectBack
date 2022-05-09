@@ -41,6 +41,9 @@ public class Showing {
     @ManyToOne
     CinemaHall showingHall;
 
+    @OneToMany(mappedBy = "showingReserved")
+    private Set<Reservation> reservations = new HashSet<>();
+
     public Showing(int id, LocalDate date, LocalDateTime time, int price, String seatType, CinemaHall showingHall) {
         this.id = id;
         this.date = date;
