@@ -27,17 +27,20 @@ public class Movie{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    @ManyToOne
+    Showing showingMovie;
 
     public Movie() {}
 
 
-    public Movie(String title, String genre, int price, String description, String rating, int ageLimit) {
+    public Movie(String title, String genre, int price, String description, String rating, int ageLimit, Showing showingMovie) {
         this.title = title;
         this.genre = genre;
         this.price = price;
         this.description = description;
         this.rating = rating;
         this.ageLimit = ageLimit;
+        showingMovie.addMovies(this);
     }
 
     public Movie(MovieRequest body){
@@ -71,8 +74,5 @@ public class Movie{
     @UpdateTimestamp
     LocalDateTime edited;
 
-
-    @ManyToOne
-    Showing showingMovie;
 
 }

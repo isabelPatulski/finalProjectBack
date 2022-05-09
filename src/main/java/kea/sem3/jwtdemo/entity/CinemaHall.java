@@ -31,18 +31,20 @@ public class CinemaHall {
 
     private Set<Showing> showings = new HashSet<>();
 
-
     public void addShowings (Showing show){
         showings.add(show);
     }
 
     @ManyToOne
-    Seat cinemaHallSeat;
+    Seat seatInHall;
 
-    public CinemaHall(int id, int hallNumber, int level, Seat seat) {
+    public CinemaHall() {
+    }
+
+    public CinemaHall(int id, int hallNumber, int level, Seat seatInHall) {
         this.id = id;
         this.hallNumber = hallNumber;
         this.level = level;
-        seat.addCinemaHall(this);
+        seatInHall.addHalls(this);
     }
 }

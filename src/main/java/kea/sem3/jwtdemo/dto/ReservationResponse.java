@@ -21,18 +21,4 @@ public class ReservationResponse {
     private LocalDate dateReserved;
 
 
-    public ReservationResponse(Reservation reservation) {
-        this.id = reservation.getId();
-        this.reservationCreated=reservation.getReservationCreated();
-        this.dateReserved=reservation.getDateReserved();
-
-
-    }
-
-    public static List<ReservationResponse> getReservationsFromEntities(List<Reservation> reservations){
-        return reservations.stream().map(reservation -> new ReservationResponse(reservation)).collect(Collectors.toList());
-    }
-
-
-
 }

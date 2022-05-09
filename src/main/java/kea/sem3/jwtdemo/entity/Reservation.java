@@ -22,7 +22,7 @@ public class Reservation {
     int id;
 
 
-    @ManyToMany
+    @ManyToMany//TODO hvordan tilføjes en ManyToMany ift. constructor???
     @JoinTable(
             //making a new column called showing_seats
             name="showing_seats",
@@ -32,20 +32,15 @@ public class Reservation {
     )
     private Set<Seat> seatsReserved = new HashSet<>();
 
-    public void addSeats(Seat seat){
-        seatsReserved.add(seat);
-    }
-
-
-    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
-    private Set<Reservation> reservations = new HashSet<>();
-
-    public void addReservation(Reservation res){
-        reservations.add(res);
-    }
-
-    //mange reservationer til én film
+    //mange reservationer til én filmvisning
     @ManyToOne
     Showing showingReserved;
 
+    public Reservation() {
+    }
+
+    public Reservation(int id, Showing showingReserved) {
+        this.id = id;
+        showingReserved.addResevertaion(this);
+    }
 }
