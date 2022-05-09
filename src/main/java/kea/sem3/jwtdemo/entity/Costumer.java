@@ -18,6 +18,7 @@ public class Costumer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
     String username;
     String email;
     int birthday;
@@ -29,7 +30,7 @@ public class Costumer {
 
  */
 
-    public Costumer(int id, String username, String surname, String email, int birthday) {
+    public Costumer(int id, String username, String email, int birthday) {
         this.id = id;
         this.username = username;
         this.email = email;

@@ -27,24 +27,17 @@ public class Movie{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-
-    //TODO: spørge om hjælp til dette hos lars.
-    // Duration duration =Duration.between()
-
-    /*TODO kan først laves, når genre er blevet lavet
-    @OneToMany
-    Genre movieGenre;*/
-
     public Movie() {}
 
 
     public Movie(String title, String genre, int price, String description, String rating, int ageLimit) {
         this.title = title;
         this.genre = genre;
-        this.price = price;
         this.description = description;
-        this.rating = rating;
+        this.price = price;
         this.ageLimit = ageLimit;
+        this.rating = rating;
+
     }
 
     public Movie(MovieRequest body){

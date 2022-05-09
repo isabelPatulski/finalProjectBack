@@ -10,7 +10,6 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MovieRequest {
-    private int id;
     private String title;
     private String genre;
     private String description;
