@@ -3,7 +3,7 @@ package kea.sem3.jwtdemo.configuration;
 import kea.sem3.jwtdemo.entity.*;
 import kea.sem3.jwtdemo.repositories.MovieRepository;
 import kea.sem3.jwtdemo.repositories.ReservationRepository;
-import kea.sem3.jwtdemo.security.UserRepository;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
