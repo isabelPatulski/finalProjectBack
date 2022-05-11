@@ -7,6 +7,7 @@ import lombok.ToString;
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,22 +23,19 @@ public class Showing {
 
     LocalDate date;
 
-    LocalDateTime time;
+    LocalTime time;
 
     int price;
 
-    String seatType;
 
     @ManyToOne
-    CinemaHall showingHall;
+    @JoinColumn(name = "movie_id")
+    private Movie movie;
 
+    @ManyToOne
+    @JoinColumn(name = "cinema_hall_id")
+    private CinemaHall cinemaHall;
 
-    @OneToMany(mappedBy = "showingMovie")//TODO skal dette tilføjes som en SET<Movie> movies i Showingrequesten????
-    private Set<Movie> movies = new HashSet<>();
-
-    public void addMovies (Movie movie){
-        movies.add(movie);
-    }
 
     public Showing() {
     }
@@ -50,16 +48,13 @@ public class Showing {
         reservations.add(res);
     }
 
-    public Showing(int id, LocalDate date, LocalDateTime time, int price, String seatType, CinemaHall showingHall, Reservation showingReserved) {
-        this.id = id;
+    public Showing(LocalDate date, LocalTime time, int price) {
         this.date = date;
         this.time = time;
         this.price = price;
-        this.seatType = seatType;
-        showingHall.addShowings(this);
     }
 
-    //TODO skal denne klasse have som linjerne nedenunder???
+
     /*public Car(CarRequest body) {
         this.brand = body.getBrand();
         this.model = body.getModel();

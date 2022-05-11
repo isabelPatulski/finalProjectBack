@@ -25,10 +25,10 @@ public class ReservationService {
     }
 
 
-    public ReservationResponse getReservation(int id){
+    /*public ReservationResponse getReservation(int id){
         return new ReservationResponse(reservationRepository.findById(id).orElseThrow(()-> new Client4xxException("No car reservation id:" + id)));
 
-    }
+    }*/
 
     public List<Reservation> getAllReservation(){
         return reservationRepository.findAll();

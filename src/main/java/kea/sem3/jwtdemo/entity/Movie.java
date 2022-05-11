@@ -27,20 +27,24 @@ public class Movie{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    @ManyToOne
-    Showing showingMovie;
+    @OneToMany(mappedBy = "movie")
+   Set<Showing> showings = new HashSet<>();
+    public void addShowing(Showing sh){
+        showings.add(sh);
+        sh.setMovie(this);
+    }
 
     public Movie() {}
 
 
-    public Movie(String title, String genre, int price, String description, String rating, int ageLimit, Showing showingMovie) {
+    public Movie(String title, String genre, int price, String description, String rating, int ageLimit) {
         this.title = title;
         this.genre = genre;
         this.price = price;
         this.description = description;
         this.rating = rating;
         this.ageLimit = ageLimit;
-        showingMovie.addMovies(this);
+
     }
 
     public Movie(MovieRequest body){

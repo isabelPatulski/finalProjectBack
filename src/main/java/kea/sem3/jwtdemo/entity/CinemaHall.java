@@ -1,7 +1,6 @@
 package kea.sem3.jwtdemo.entity;
 
 
-import lombok.AccessLevel;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -19,32 +18,33 @@ public class CinemaHall {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    int hallNumber;
-
-    //altså etage
-    int level;
+    int numbSeats;
+    int numbRows;
 
 
-    @OneToMany(mappedBy = "showingHall")
-    //@Setter(AccessLevel.NONE)
-    //@Getter(AccessLevel.NONE)
-
+    @OneToMany(mappedBy = "cinemaHall")
     private Set<Showing> showings = new HashSet<>();
 
-    public void addShowings (Showing show){
+    public void addShowing(Showing show){
+
         showings.add(show);
+        show.setCinemaHall(this);
     }
 
-    @ManyToOne
-    Seat seatInHall;
+    @OneToMany(mappedBy = "cinemaHall", cascade = CascadeType.PERSIST)
+    Set<Seat> seats = new HashSet<>();
 
     public CinemaHall() {
     }
 
-    public CinemaHall(int id, int hallNumber, int level, Seat seatInHall) {
-        this.id = id;
-        this.hallNumber = hallNumber;
-        this.level = level;
-        seatInHall.addHalls(this);
+    public CinemaHall(int numbSeats, int numbRows) {
+        this.numbSeats = numbSeats;
+        this.numbRows = numbRows;
+        for(int r=1; r<numbRows; r++)
+          for(int s= 1; s<numbSeats;s++)
+          {
+              seats.add(new Seat(r, s, this));
+        }
+
     }
 }

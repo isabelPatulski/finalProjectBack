@@ -22,17 +22,20 @@ public class Seat {
     int seatRow;
     int seatNumber;
 
-    @OneToMany(mappedBy = "seatInHall")
-    private Set<CinemaHall> seatsInHall = new HashSet<>();
 
-    public void addHalls (CinemaHall seatInHall){
-        seatsInHall.add(seatInHall);
-    }
+    @ManyToMany(mappedBy= "seatsReserved" )
+
+    public Set<Reservation> reservations = new HashSet<>();
+
+    @ManyToOne
+    @JoinColumn(name = "cinema_hall_id")
+    private CinemaHall cinemaHall;
 
 
-    public Seat(int seatRow, int seatNumber) {
+    public Seat(int seatRow, int seatNumber, CinemaHall cinemaHall) {
         this.seatRow = seatRow;
         this.seatNumber = seatNumber;
+        this.cinemaHall=cinemaHall;
     }
 
 
