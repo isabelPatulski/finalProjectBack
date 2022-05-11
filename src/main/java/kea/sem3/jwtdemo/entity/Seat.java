@@ -23,8 +23,7 @@ public class Seat {
     int seatNumber;
 
 
-    @ManyToMany(mappedBy= "seatsReserved" )
-
+    @ManyToMany(mappedBy= "seats" )
     public Set<Reservation> reservations = new HashSet<>();
 
     @ManyToOne

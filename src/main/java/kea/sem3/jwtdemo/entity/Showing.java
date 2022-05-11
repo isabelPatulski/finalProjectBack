@@ -28,25 +28,31 @@ public class Showing {
     int price;
 
 
+    //Connecter movie & showing
     @ManyToOne
     @JoinColumn(name = "movie_id")
     private Movie movie;
 
+    //Connecter hall & showing
     @ManyToOne
     @JoinColumn(name = "cinema_hall_id")
     private CinemaHall cinemaHall;
 
 
+    //Connecter reservation & showing
+    @ManyToMany(mappedBy = "seats")
+    private Set<Reservation> reservations = new HashSet<>();
+
+    public void addReservations(Reservation res){
+
+        reservations.add(res);
+        res.setShowing(this);
+    }
+
+
     public Showing() {
     }
 
-
-    @OneToMany(mappedBy = "showingReserved")
-    private Set<Reservation> reservations = new HashSet<>();
-
-    public void addResevertaion (Reservation res){
-        reservations.add(res);
-    }
 
     public Showing(LocalDate date, LocalTime time, int price) {
         this.date = date;

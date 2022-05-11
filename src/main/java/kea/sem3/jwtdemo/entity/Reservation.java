@@ -6,9 +6,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.Set;
+import java.util.*;
 import java.util.HashSet;
 import java.util.Set;
 
@@ -22,7 +20,25 @@ public class Reservation {
     int id;
 
 
+    @ManyToOne
+    @JoinColumn(name = "showing_id")
+    private Showing showing;
+
+
+
     @ManyToMany
+    @JoinTable(name = "reservation_seats_reserved",
+            joinColumns = @JoinColumn(name = "reservation_id", referencedColumnName = "seats_reserved_id"))
+    private Set<Seat> seats = new HashSet<>();
+
+
+    public Reservation() {
+    }
+
+
+
+
+    /*@ManyToMany
     @JoinTable(
             //making a new column called showing_seats
             name="showing_seats",
@@ -30,18 +46,8 @@ public class Reservation {
             joinColumns = @JoinColumn(name="reservation_id"),
             inverseJoinColumns =@JoinColumn(name = "seat_id")
     )
-    private Set<Seat> seatsReserved = new HashSet<>();
+    private Set<Seat> seatsReserved = new HashSet<>();*/
 
-    //mange reservationer til én filmvisning
-    @ManyToOne
-    Showing showingReserved;
 
-    public Reservation() {
-    }
 
-    public Reservation(Showing showingReserved, Set<Seat> seatsReserved) {
-
-        showingReserved.addResevertaion(this);
-        this.seatsReserved= seatsReserved;
-    }
 }

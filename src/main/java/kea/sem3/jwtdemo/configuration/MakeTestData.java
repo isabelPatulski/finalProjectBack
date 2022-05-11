@@ -1,10 +1,8 @@
 package kea.sem3.jwtdemo.configuration;
 
 import kea.sem3.jwtdemo.entity.*;
-import kea.sem3.jwtdemo.repositories.CinemaHallrepository;
-import kea.sem3.jwtdemo.repositories.MovieRepository;
+import kea.sem3.jwtdemo.repositories.*;
 ;
-import kea.sem3.jwtdemo.repositories.ShowingRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
@@ -21,12 +19,16 @@ public class MakeTestData implements ApplicationRunner {
     MovieRepository movieRepository;
     CinemaHallrepository cinemaHallrepository;
     ShowingRepository showingRepository;
+    SeatRepository seatRepository;
+    ReservationRepository reservationRepository;
 
 
-    public MakeTestData(MovieRepository movieRepository, CinemaHallrepository cinemaHallrepository, ShowingRepository showingRepository) {
+    public MakeTestData(MovieRepository movieRepository, CinemaHallrepository cinemaHallrepository, ShowingRepository showingRepository, SeatRepository seatRepository, ReservationRepository reservationRepository) {
         this.movieRepository = movieRepository;
         this.cinemaHallrepository = cinemaHallrepository;
         this.showingRepository = showingRepository;
+        this.seatRepository = seatRepository;
+        this.reservationRepository = reservationRepository;
     }
 
     public  void makePlainTestData(){
@@ -63,6 +65,7 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
         CinemaHall c7 = new CinemaHall(23,10);
         cinemaHallrepository.save(c7);
 
+
         //Showings
         Showing sh1 = new Showing(LocalDate.of(2022,5,14), LocalTime.of(12,00),90);
 
@@ -71,6 +74,8 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
 
         //Her tilføjer vi en bestemt film til en bestemt showing/visning
         m1.addShowing(sh1);
+        /*For at gemme de nye tilføjelser af film og hal, skal showing gemmes efter de to elementer er tilføjet
+        Ellers gemmes de nye tilføjelser ikke til den nyoprettet showing*/
         showingRepository.save(sh1);
 
 
@@ -101,6 +106,10 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
         m6.addShowing(sh6);
         showingRepository.save(sh6);
 
+        //Reservation
+        Reservation r1 = new Reservation();
+        sh1.addReservations(r1);
+        reservationRepository.save(r1);
     }
 
     @Override

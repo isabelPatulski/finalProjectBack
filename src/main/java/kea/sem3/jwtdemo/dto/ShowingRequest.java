@@ -18,6 +18,4 @@ public class ShowingRequest {
     private int cinemaId;
 
     private int movieId;
-
-
 }
