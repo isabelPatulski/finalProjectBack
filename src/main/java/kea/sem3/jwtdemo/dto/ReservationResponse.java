@@ -19,16 +19,15 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ReservationResponse {
+
     private Showing showing;
 
-    //private int costumerId;
 
-    private Showing show;
+    public ReservationResponse(Reservation res){
+        this.showing=res.getShowing();
+    }
 
-    private Set<Seat> seats;
-
-    public ReservationResponse(Reservation reservation){
-        this.show= reservation.getShowing();
-        this.seats=reservation.getSeats();
+    public static List<ReservationResponse> getShowingsFromEntities(List<Reservation> res){
+        return res.stream().map(reservations-> new ReservationResponse(reservations)).collect(Collectors.toList());
     }
 }

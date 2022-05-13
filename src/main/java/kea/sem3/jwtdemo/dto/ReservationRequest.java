@@ -10,11 +10,7 @@ public class ReservationRequest {
 
     //private  int costumerId;
 
-    private int showId;
-
-    private int seatId;
-
-
+    private int showingId;
 
 
 }

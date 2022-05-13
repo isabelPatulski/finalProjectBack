@@ -19,34 +19,14 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-
+    //der kan være mange reservationer til en fremvisning
     @ManyToOne
     @JoinColumn(name = "showing_id")
     private Showing showing;
 
-
-
-    @ManyToMany
-    @JoinTable(name = "reservation_seats_reserved",
-            joinColumns = @JoinColumn(name = "reservation_id", referencedColumnName = "seats_reserved_id"))
-    private Set<Seat> seats = new HashSet<>();
-
-
     public Reservation() {
     }
 
-
-
-
-    /*@ManyToMany
-    @JoinTable(
-            //making a new column called showing_seats
-            name="showing_seats",
-            //and it's going to join, using the column called reservation_id
-            joinColumns = @JoinColumn(name="reservation_id"),
-            inverseJoinColumns =@JoinColumn(name = "seat_id")
-    )
-    private Set<Seat> seatsReserved = new HashSet<>();*/
 
 
 

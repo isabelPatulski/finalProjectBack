@@ -74,11 +74,10 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
 
         //Her tilføjer vi en bestemt film til en bestemt showing/visning
         m1.addShowing(sh1);
+
         /*For at gemme de nye tilføjelser af film og hal, skal showing gemmes efter de to elementer er tilføjet
         Ellers gemmes de nye tilføjelser ikke til den nyoprettet showing*/
         showingRepository.save(sh1);
-
-
 
         Showing sh2 = new Showing(LocalDate.of(2022,9,15), LocalTime.of(3,00),90);
         c2.addShowing(sh2);
@@ -106,10 +105,13 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
         m6.addShowing(sh6);
         showingRepository.save(sh6);
 
+
         //Reservation
         Reservation r1 = new Reservation();
-        sh1.addReservations(r1);
+        sh1.addReservation(r1);
         reservationRepository.save(r1);
+
+
     }
 
     @Override

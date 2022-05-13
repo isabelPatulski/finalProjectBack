@@ -29,6 +29,7 @@ public class Movie{
 
     @OneToMany(mappedBy = "movie")
    Set<Showing> showings = new HashSet<>();
+
     public void addShowing(Showing sh){
         showings.add(sh);
         sh.setMovie(this);

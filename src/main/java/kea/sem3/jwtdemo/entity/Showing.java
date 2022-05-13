@@ -40,19 +40,17 @@ public class Showing {
 
 
     //Connecter reservation & showing
-    @ManyToMany(mappedBy = "seats")
-    private Set<Reservation> reservations = new HashSet<>();
+    //En shwoing kan have flere reservationer
+    @OneToMany(mappedBy = "showing")
+    private Set<Reservation> reservations= new HashSet<>();
 
-    public void addReservations(Reservation res){
-
+    public void addReservation(Reservation res){
         reservations.add(res);
         res.setShowing(this);
     }
 
-
     public Showing() {
     }
-
 
     public Showing(LocalDate date, LocalTime time, int price) {
         this.date = date;

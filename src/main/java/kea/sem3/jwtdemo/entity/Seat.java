@@ -23,12 +23,10 @@ public class Seat {
     int seatNumber;
 
 
-    @ManyToMany(mappedBy= "seats" )
-    public Set<Reservation> reservations = new HashSet<>();
-
     @ManyToOne
     @JoinColumn(name = "cinema_hall_id")
     private CinemaHall cinemaHall;
+
 
 
     public Seat(int seatRow, int seatNumber, CinemaHall cinemaHall) {
@@ -42,20 +40,6 @@ public class Seat {
     public Seat() {
     }
 
-
-
-
-
-
-
-
-
-    @ManyToMany(mappedBy = "seatsReserved")
-    private Set<Reservation> seatsReserved = new HashSet<>();
-
-    public void addReservation (Reservation res){
-        seatsReserved.add(res);
-    }
 
     public Seat(SeatRequest seatRequest) {
         this.id = seatRequest.getId();

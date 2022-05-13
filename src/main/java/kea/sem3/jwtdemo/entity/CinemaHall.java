@@ -24,6 +24,7 @@ public class CinemaHall {
     //Connecter mellem showings & hall
     @OneToMany(mappedBy = "cinemaHall")
     private Set<Showing> showings = new HashSet<>();
+
     public void addShowing(Showing show){
         showings.add(show);
         show.setCinemaHall(this);
