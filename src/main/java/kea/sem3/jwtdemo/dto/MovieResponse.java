@@ -3,12 +3,14 @@ package kea.sem3.jwtdemo.dto;
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import kea.sem3.jwtdemo.entity.Movie;
+import kea.sem3.jwtdemo.entity.Showing;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 import java.time.LocalDateTime;
 import java.util.List;
+import java.util.Set;
 import java.util.stream.Collectors;
 
 @Getter
@@ -24,6 +26,7 @@ public class MovieResponse {
     int price;
     int ageLimit;
     String rating;
+    Set<Showing> showings;
 
 
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = JsonFormat.Shape.STRING)
@@ -39,6 +42,7 @@ public class MovieResponse {
         this.price = movie.getPrice();
         this.ageLimit = movie.getAgeLimit();
         this.rating = movie.getRating();
+        this.showings=movie.getShowings();
 
     }
 

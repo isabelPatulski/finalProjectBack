@@ -18,6 +18,7 @@ import java.util.stream.Collectors;
 @Setter
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
+
 public class ReservationResponse {
 
     private Showing showing;
@@ -27,7 +28,7 @@ public class ReservationResponse {
         this.showing=res.getShowing();
     }
 
-    public static List<ReservationResponse> getShowingsFromEntities(List<Reservation> res){
-        return res.stream().map(reservations-> new ReservationResponse(reservations)).collect(Collectors.toList());
+    public static List<ReservationResponse> getShowingsFromEntities(List<Reservation> reservations){
+        return reservations.stream().map(reservation-> new ReservationResponse(reservation)).collect(Collectors.toList());
     }
 }

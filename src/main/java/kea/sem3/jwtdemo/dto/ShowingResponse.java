@@ -24,24 +24,27 @@ import java.util.stream.Collectors;
 public class ShowingResponse {
 
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = JsonFormat.Shape.STRING)
-    private LocalDate date;
+    LocalDate date;
 
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = JsonFormat.Shape.STRING)
-    private LocalTime time;
+    LocalTime time;
 
-    private int price;
+    int price;
 
-    private CinemaHall showingHall;
+    CinemaHall cinemaHall;
+
+    Movie movie;
 
 
     public ShowingResponse(Showing showing){
         this.date=showing.getDate();
         this.time= showing.getTime();
         this.price=showing.getPrice();
-        this.showingHall=showing.getCinemaHall();
+        this.cinemaHall=showing.getCinemaHall();
+        this.movie=showing.getMovie();
     }
 
-    public static List<ShowingResponse> getShowingsFromEntities(List<Showing> showing){
-        return showing.stream().map(showings-> new ShowingResponse(showings)).collect(Collectors.toList());
+    public static List<ShowingResponse> getShowingsFromEntities(List<Showing> showings){
+        return showings.stream().map(showing-> new ShowingResponse(showing)).collect(Collectors.toList());
     }
 }

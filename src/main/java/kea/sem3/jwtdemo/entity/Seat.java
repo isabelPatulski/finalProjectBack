@@ -19,12 +19,16 @@ public class Seat {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+
+    @Column
     int seatRow;
+
+    @Column
     int seatNumber;
 
 
-    @ManyToOne
-    @JoinColumn(name = "cinema_hall_id")
+    @ManyToOne (cascade= CascadeType.ALL)
+    @JoinColumn(name = "cinema_hall_id",referencedColumnName = "id")
     private CinemaHall cinemaHall;
 
 
@@ -41,9 +45,8 @@ public class Seat {
     }
 
 
-    public Seat(SeatRequest seatRequest) {
-        this.id = seatRequest.getId();
-        this.seatRow = seatRequest.getSeatRow();
-        this.seatNumber = seatRequest.getSeatNumber();
+    public Seat(SeatRequest body) {
+        this.seatRow = body.getSeatRow();
+        this.seatNumber = body.getSeatNumber();
     }
 }

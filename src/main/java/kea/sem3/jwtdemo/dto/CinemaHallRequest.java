@@ -1,9 +1,13 @@
 package kea.sem3.jwtdemo.dto;
 
+import kea.sem3.jwtdemo.entity.Seat;
+import kea.sem3.jwtdemo.entity.Showing;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 
 @Getter
 @Setter
@@ -11,7 +15,9 @@ import lombok.Setter;
 @AllArgsConstructor
 
 public class CinemaHallRequest {
-    private int id;
-    private int hallNumber;
-    private int level;
+
+    private int numbSeats;
+    private int numbRows;
+    private Showing showing;
+    private Seat seat;
 }

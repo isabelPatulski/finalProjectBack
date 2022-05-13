@@ -99,27 +99,26 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
         m4.addShowing(sh5);
         showingRepository.save(sh5);
 
-
         Showing sh6 = new Showing(LocalDate.of(2022,2,17), LocalTime.of(2,00),90);
         c6.addShowing(sh6);
         m6.addShowing(sh6);
         showingRepository.save(sh6);
 
+        //Reservations
 
-        //Reservation
-        Reservation r1 = new Reservation();
-        sh1.addReservation(r1);
-        reservationRepository.save(r1);
+
 
 
     }
+
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
         movieRepository.deleteAll();
+        cinemaHallrepository.deleteAll();
+        showingRepository.deleteAll();
+        seatRepository.deleteAll();
         makePlainTestData();
-
-
     }
 }

@@ -1,8 +1,12 @@
 package kea.sem3.jwtdemo.entity;
 
+import kea.sem3.jwtdemo.dto.MovieRequest;
+import kea.sem3.jwtdemo.dto.ShowingRequest;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
+import org.hibernate.annotations.CreationTimestamp;
+import org.hibernate.annotations.UpdateTimestamp;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -21,33 +25,30 @@ public class Showing {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
+    @CreationTimestamp
     LocalDate date;
 
+    @CreationTimestamp
     LocalTime time;
 
+    @Column
     int price;
 
-
-    //Connecter movie & showing
-    @ManyToOne
-    @JoinColumn(name = "movie_id")
-    private Movie movie;
-
     //Connecter hall & showing
-    @ManyToOne
-    @JoinColumn(name = "cinema_hall_id")
+    @ManyToOne (cascade= CascadeType.ALL)
+    // @JoinColumn(name = "cinema_hall_id")
+    @JoinColumn(name= "cinema_hall_id", referencedColumnName= "id")
     private CinemaHall cinemaHall;
 
 
-    //Connecter reservation & showing
-    //En shwoing kan have flere reservationer
-    @OneToMany(mappedBy = "showing")
-    private Set<Reservation> reservations= new HashSet<>();
+    //Connecter movie & showing
+    @ManyToOne (cascade= CascadeType.ALL)
+    @JoinColumn(name= "movie_id", referencedColumnName= "id")
+    private Movie movie;
 
-    public void addReservation(Reservation res){
-        reservations.add(res);
-        res.setShowing(this);
-    }
+
+
+
 
     public Showing() {
     }
@@ -58,11 +59,10 @@ public class Showing {
         this.price = price;
     }
 
+    public Showing(ShowingRequest body){
+        this.date = body.getDate();
+        this.time = body.getTime();
+        this.price = body.getPrice();
+    }
 
-    /*public Car(CarRequest body) {
-        this.brand = body.getBrand();
-        this.model = body.getModel();
-        this.pricePrDay = body.getPricePrDay();
-        this.bestDiscount= body.getPricePrDay();
-    }*/
 }

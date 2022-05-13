@@ -1,6 +1,8 @@
 package kea.sem3.jwtdemo.entity;
 
 
+import kea.sem3.jwtdemo.dto.MovieRequest;
+import kea.sem3.jwtdemo.dto.ReservationRequest;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
@@ -20,9 +22,11 @@ public class Reservation {
     int id;
 
     //der kan være mange reservationer til en fremvisning
-    @ManyToOne
-    @JoinColumn(name = "showing_id")
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "showing_id", referencedColumnName = "id")
     private Showing showing;
+
+
 
     public Reservation() {
     }

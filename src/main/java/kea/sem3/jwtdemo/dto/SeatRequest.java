@@ -10,7 +10,9 @@ import lombok.Setter;
 @NoArgsConstructor
 @AllArgsConstructor
 public class SeatRequest {
-    private int id;
     private int seatRow;
     private int seatNumber;
+    private int cinemaHallId;
+
+
 }
