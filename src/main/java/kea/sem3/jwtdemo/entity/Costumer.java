@@ -15,6 +15,7 @@ import java.util.Set;
 @ToString
 
 public class Costumer {
+    //Isabel
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;

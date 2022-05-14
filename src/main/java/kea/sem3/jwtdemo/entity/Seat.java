@@ -16,6 +16,7 @@ import java.util.Set;
 @ToString
 
 public class Seat {
+    //Andrea Brinkbøl
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;

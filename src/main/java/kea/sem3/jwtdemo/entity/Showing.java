@@ -20,6 +20,7 @@ import java.util.Set;
 @Setter
 @ToString
 public class Showing {
+//Andrea Brinkbøl
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -53,7 +54,6 @@ public class Showing {
         reservations.add(res);
         res.setShowing(this);
     }
-
 
     public Showing() {
     }

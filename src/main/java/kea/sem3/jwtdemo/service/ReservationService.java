@@ -1,6 +1,7 @@
 package kea.sem3.jwtdemo.service;
 
 
+import kea.sem3.jwtdemo.dto.ReservationResponse;
 import kea.sem3.jwtdemo.dto.ShowingResponse;
 import kea.sem3.jwtdemo.entity.Costumer;
 import kea.sem3.jwtdemo.entity.Reservation;
@@ -27,10 +28,10 @@ public class ReservationService {
         this.showingRepository = showingRepository;
     }
 
-    /*public ReservationResponse getReservation(int id){
+    public ReservationResponse getReservation(int id){
         return new ReservationResponse(reservationRepository.findById(id).orElseThrow(()-> new Client4xxException("No car reservation id:" + id)));
 
-    }*/
+    }
 
     public List<Reservation> getAllReservation(){
         return reservationRepository.findAll();

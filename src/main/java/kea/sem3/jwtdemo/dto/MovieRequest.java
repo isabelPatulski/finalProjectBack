@@ -13,7 +13,6 @@ import java.util.Set;
 @NoArgsConstructor
 @AllArgsConstructor
 public class MovieRequest {
-    private int id;
     private String title;
     private String genre;
     private String description;
@@ -21,6 +20,4 @@ public class MovieRequest {
     private int ageLimit;
     private String rating;
     private Set<Showing> showings;
-
-
 }

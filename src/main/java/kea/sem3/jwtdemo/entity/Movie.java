@@ -23,6 +23,7 @@ import java.util.Set;
 @EqualsAndHashCode
 @ToString
 public class Movie{
+    //Casper
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;

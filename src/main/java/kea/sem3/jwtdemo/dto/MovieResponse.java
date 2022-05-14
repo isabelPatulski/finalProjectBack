@@ -18,8 +18,6 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class MovieResponse {
-    int id;
-
     String title;
     String genre;
     String description;

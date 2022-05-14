@@ -17,29 +17,32 @@ import java.util.Set;
 @Setter
 @ToString
 public class Reservation {
+    //Andrea Brinkbøl
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
     //der kan være mange reservationer til en fremvisning
+    /*name er navngivning af den kollen der skal oprettes
+    referencedColumnName er fra hvilken kolonne inforationen skal hentes fra
+    informationen hentes fra showing-table og specifikt fra kolonen der hedder id,
+    som ligger i showing table */
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "showing_id", referencedColumnName = "id")
     private Showing showing;
 
-    @ManyToMany
+    @ManyToMany//TODO hvordan tilføjer man flere tabels på én table?
+    // skal både have seat og showing samlet i denne tabel, hvordan gøres det?
+
     @JoinTable(
             name = "showSeat",
             joinColumns= @JoinColumn(name="reservation_id"),
           inverseJoinColumns = @JoinColumn(name="seat_id")
-
     )
     private Set<Seat> seatsReserved= new HashSet<>();
 
 
     public Reservation() {
     }
-
-
-
 
 }

@@ -42,7 +42,7 @@ public class SeatService {
         return  new SeatResponse(seatRepository.save(seat));
     }
 
-    public void deleteMovie(int seatId) {
+    public void deleteSeat(int seatId) {
         seatRepository.deleteById(seatId);
     }
 

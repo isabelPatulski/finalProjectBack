@@ -15,6 +15,7 @@ import java.util.Set;
 @ToString
 
 public class CinemaHall {
+    //Andrea & Isabel
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
@@ -24,8 +25,6 @@ public class CinemaHall {
     //Connecter mellem showings & hall
     @OneToMany(mappedBy = "cinemaHall")
     private Set<Showing> showings = new HashSet<>();
-
-
     public void addShowing(Showing show) {
         showings.add(show);
         show.setCinemaHall(this);
@@ -35,15 +34,14 @@ public class CinemaHall {
     @OneToMany(mappedBy = "cinemaHall", cascade = CascadeType.PERSIST)
     Set<Seat> seats = new HashSet<>();
 
+
     public CinemaHall(CinemaHallRequest body) {
         this.numbSeats = body.getNumbSeats();
         this.numbRows = body.getNumbRows();
 
     }
 
-
-    public CinemaHall() {
-    }
+    public CinemaHall() {}
 
     public CinemaHall(int numbSeats, int numbRows) {
         this.numbSeats = numbSeats;
