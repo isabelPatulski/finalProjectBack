@@ -28,7 +28,7 @@ public class Showing {
     @CreationTimestamp
     LocalDate date;
 
-    @CreationTimestamp
+    @UpdateTimestamp
     LocalTime time;
 
     @Column
@@ -46,8 +46,13 @@ public class Showing {
     @JoinColumn(name= "movie_id", referencedColumnName= "id")
     private Movie movie;
 
+    @OneToMany(mappedBy = "showing")
+    private Set<Reservation> reservations= new HashSet<>();
 
-
+    public void addReservation(Reservation res){
+        reservations.add(res);
+        res.setShowing(this);
+    }
 
 
     public Showing() {

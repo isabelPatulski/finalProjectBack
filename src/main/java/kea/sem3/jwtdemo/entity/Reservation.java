@@ -26,6 +26,14 @@ public class Reservation {
     @JoinColumn(name = "showing_id", referencedColumnName = "id")
     private Showing showing;
 
+    @ManyToMany
+    @JoinTable(
+            name = "showSeat",
+            joinColumns= @JoinColumn(name="reservation_id"),
+          inverseJoinColumns = @JoinColumn(name="seat_id")
+
+    )
+    private Set<Seat> seatsReserved= new HashSet<>();
 
 
     public Reservation() {

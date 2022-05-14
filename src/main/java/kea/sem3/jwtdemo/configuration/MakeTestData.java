@@ -67,7 +67,7 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
 
 
         //Showings
-        Showing sh1 = new Showing(LocalDate.of(2022,5,14), LocalTime.of(12,00),90);
+        Showing sh1 = showingRepository.save(new Showing(LocalDate.of(2022,5,14), LocalTime.of(12,00),90));
 
         //Her tilføjer en showing til en bestemt hall, hall c1
         c1.addShowing(sh1);
@@ -79,34 +79,35 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
         Ellers gemmes de nye tilføjelser ikke til den nyoprettet showing*/
         showingRepository.save(sh1);
 
-        Showing sh2 = new Showing(LocalDate.of(2022,9,15), LocalTime.of(3,00),90);
+        Showing sh2 =showingRepository.save(new Showing(LocalDate.of(2022,9,15), LocalTime.of(3,00),90));
         c2.addShowing(sh2);
         m2.addShowing(sh2);
         showingRepository.save(sh2);
 
-        Showing sh3 = new Showing(LocalDate.of(2022,7,13), LocalTime.of(1,00),90);
+        Showing sh3 = showingRepository.save(new Showing(LocalDate.of(2022,7,13), LocalTime.of(1,00),90));
         c3.addShowing(sh3);
         m3.addShowing(sh3);
         showingRepository.save(sh3);
 
-        Showing sh4 = new Showing(LocalDate.of(2022,8,12), LocalTime.of(2,00),90);
+        Showing sh4 = showingRepository.save(new Showing(LocalDate.of(2022,8,12), LocalTime.of(2,00),90));
         c4.addShowing(sh4);
         m3.addShowing(sh4);
         showingRepository.save(sh4);
 
-        Showing sh5 = new Showing(LocalDate.of(2022,3,16), LocalTime.of(2,00),90);
+        Showing sh5 = showingRepository.save(new Showing(LocalDate.of(2022,3,16), LocalTime.of(2,00),90));
         c5.addShowing(sh5);
         m4.addShowing(sh5);
         showingRepository.save(sh5);
 
-        Showing sh6 = new Showing(LocalDate.of(2022,2,17), LocalTime.of(2,00),90);
+        Showing sh6 = showingRepository.save(new Showing(LocalDate.of(2022,2,17), LocalTime.of(2,00),90));
         c6.addShowing(sh6);
         m6.addShowing(sh6);
         showingRepository.save(sh6);
 
         //Reservations
-
-
+        Reservation r1= reservationRepository.save(new Reservation());
+        sh1.addReservation(r1);
+        reservationRepository.save(r1);
 
 
     }
@@ -114,11 +115,11 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-
         movieRepository.deleteAll();
         cinemaHallrepository.deleteAll();
         showingRepository.deleteAll();
         seatRepository.deleteAll();
+        reservationRepository.deleteAll();
         makePlainTestData();
     }
 }

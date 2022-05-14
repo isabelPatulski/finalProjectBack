@@ -18,6 +18,4 @@ public class CinemaHallRequest {
 
     private int numbSeats;
     private int numbRows;
-    private Showing showing;
-    private Seat seat;
 }

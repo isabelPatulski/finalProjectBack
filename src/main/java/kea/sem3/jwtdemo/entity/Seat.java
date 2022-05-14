@@ -39,6 +39,8 @@ public class Seat {
         this.cinemaHall=cinemaHall;
     }
 
+    @ManyToMany(mappedBy = "seatsReserved")
+    private Set<Reservation> reservations= new HashSet<>();
 
 
     public Seat() {
