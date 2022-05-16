@@ -36,19 +36,6 @@ public class CustomerService {
         return new CustomerResponse(customerRepository.save(customer));
     }
 
-    //PATCH method for Username
-    public void updateUsername(int customerId, String newUsername){
-        Customer customer = customerRepository.findById(customerId).orElseThrow(()-> new Client4xxException("No customer with provided ID found"));
-        customer.setUsername(newUsername);
-        customerRepository.save(customer);
-    }
-
-    //PATCH for Email
-    public void updateEmail(int customerId,String newEmail){
-        Customer customer = customerRepository.findById(customerId).orElseThrow(()-> new Client4xxException("No customer with provided ID found"));
-        customer.setEmail(newEmail);
-        customerRepository.save(customer);
-    }
 
     public void deleteCustomer(int customerId) {
         customerRepository.deleteById(customerId);
