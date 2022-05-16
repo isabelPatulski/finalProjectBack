@@ -19,37 +19,31 @@ public class Reservation {
     int id;
     int movieId;
     int dateID;
-    int costumerId;
+    int customerId;
     //Skal vidst lige laves til date/time
-    int date;
-    /*
+    LocalDate date;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name="costumer_id", referencedColumnName = "id")
-    private Costumer costumer;
+    @JoinColumn(name="customerId", referencedColumnName = "id")
+    private Customer customer;
 
-
-     */
-    public Reservation(int id, int movieId, int dateID, int costumerId, int date) {
+    public Reservation(int id, int movieId, int dateID, int customerId, LocalDate date) {
         this.id = id;
         this.movieId = movieId;
         this.dateID = dateID;
-        this.costumerId = costumerId;
+        this.customerId = customerId;
         this.date = date;
     }
 
     public Reservation() {
 
     }
-    /*
 
-    public Costumer getCostumer() {
-        return costumer;
+    public Customer getCustomer() {
+        return customer;
     }
 
-    public void makeReservation(Costumer costumer) {
-        this.costumer = costumer;
+    public void makeReservation(Customer customer) {
+        this.customer = customer;
     }
-
-     */
 }
