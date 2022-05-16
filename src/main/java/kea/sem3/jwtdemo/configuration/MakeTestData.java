@@ -3,6 +3,9 @@ package kea.sem3.jwtdemo.configuration;
 import kea.sem3.jwtdemo.entity.*;
 import kea.sem3.jwtdemo.repositories.*;
 ;
+import kea.sem3.jwtdemo.repositories.MovieRepository;
+import kea.sem3.jwtdemo.repositories.ReservationRepository;
+
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.context.annotation.Profile;
@@ -14,6 +17,7 @@ import java.time.LocalTime;
 @Controller
 @Profile("!test")
 public class MakeTestData implements ApplicationRunner {
+
 
 
     MovieRepository movieRepository;
@@ -113,7 +117,6 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
         reservationRepository.save(r1);
     }
 
-
     @Override
     public void run(ApplicationArguments args) throws Exception {
         //Alle deleteAll, gør at hvis tabellerne allerede eksisterer slettes de
@@ -125,5 +128,7 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
 
         //og herefter oprettes nye tabeller med data fra makePlainTestData-metoden
         makePlainTestData();
+
+
     }
 }
