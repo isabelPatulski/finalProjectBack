@@ -13,5 +13,9 @@ public class MovieRequest {
     private int id;
     private String title;
     private String genre;
+    private String description;
+    private int price;
+    private int ageLimit;
+    private String rating;
 
 }

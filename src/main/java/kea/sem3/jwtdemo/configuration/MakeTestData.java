@@ -1,6 +1,8 @@
 package kea.sem3.jwtdemo.configuration;
 
 import kea.sem3.jwtdemo.entity.*;
+import kea.sem3.jwtdemo.repositories.MovieRepository;
+import kea.sem3.jwtdemo.repositories.ReservationRepository;
 import kea.sem3.jwtdemo.security.UserRepository;
 import org.springframework.boot.ApplicationArguments;
 import org.springframework.boot.ApplicationRunner;
@@ -15,25 +17,36 @@ import java.time.Month;
 public class MakeTestData implements ApplicationRunner {
 
 
-    UserRepository userRepository;
 
-    public MakeTestData(UserRepository userRepository) {
-        this.userRepository = userRepository;
+    MovieRepository movieRepository;
+    //UserRepository userRepository;
+    //public MakeTestData(UserRepository userRepository) {
+    // this.userRepository = userRepository;
+    //}
+    public MakeTestData(MovieRepository movieRepository) {
+       this.movieRepository = movieRepository;
     }
 
-    public  void makePlainUsers(){
+    public  void makePlainTestData(){
+        /*
         BaseUser user = new BaseUser("user", "user@a.dk", "test12");
-        user.addRole(Role.USER);
         BaseUser admin = new BaseUser("admin", "admin@a.dk", "test12");
-        admin.addRole(Role.ADMIN);
-
         BaseUser both = new BaseUser("user_admin", "both@a.dk", "test12");
-        both.addRole(Role.USER);
-        both.addRole(Role.ADMIN);
 
         userRepository.save(user);
         userRepository.save(admin);
         userRepository.save(both);
+
+    public Movie(String title, String genre, int price, String description, String rating, int ageLimit) {
+
+         */
+        movieRepository.save(new Movie("The Green Man", "Horror", 80, "This is a description", "PG-13", 13));
+        movieRepository.save(new Movie("Some Women Dancing", "Comedy", 80, "This is a description", "PG", 7));
+        movieRepository.save(new Movie("In Captivity", "Thriller", 80, "This is a description", "R", 18));
+        movieRepository.save(new Movie("The Love Birds", "Romance", 80, "This is a description", "PG-13", 13));
+        movieRepository.save(new Movie("Angry People Watching", "Action", 80, "This is a description", "PG-13", 13));
+        movieRepository.save(new Movie("Space Walking", "Science Fiction", 80, "This is a description", "NC-17", 21));
+
 
         System.out.println("########################################################################################");
         System.out.println("########################################################################################");
@@ -50,9 +63,8 @@ public class MakeTestData implements ApplicationRunner {
     @Override
     public void run(ApplicationArguments args) throws Exception {
 
-        userRepository.deleteAll();
-
-        makePlainUsers();
+        movieRepository.deleteAll();
+        makePlainTestData();
 
 
     }
