@@ -17,7 +17,7 @@ import java.util.Set;
 @Setter
 @ToString
 public class Reservation {
-    //Andrea Brinkbøl
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
@@ -35,6 +35,8 @@ public class Reservation {
     @ManyToOne(cascade = CascadeType.ALL)
     @JoinColumn(name = "showseat_id", referencedColumnName = "id")
     private ShowSeat showSeat;
+    @JoinColumn(name="customerId", referencedColumnName = "id")
+    private Customer customer;
 
    /* @ManyToMany(cascade = CascadeType.ALL)
     //TODO hvordan tilføjer man flere tabels på én table?
@@ -52,4 +54,11 @@ public class Reservation {
     public Reservation() {
     }
 
+    public Customer getCustomer() {
+        return customer;
+    }
+
+    public void makeReservation(Customer customer) {
+        this.customer = customer;
+    }
 }

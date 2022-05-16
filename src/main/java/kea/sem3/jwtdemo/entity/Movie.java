@@ -23,7 +23,6 @@ import java.util.Set;
 @EqualsAndHashCode
 @ToString
 public class Movie{
-    //Casper
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
@@ -65,10 +64,10 @@ public class Movie{
     public Movie(String title, String genre, int price, String description, String rating, int ageLimit) {
         this.title = title;
         this.genre = genre;
-        this.price = price;
         this.description = description;
-        this.rating = rating;
+        this.price = price;
         this.ageLimit = ageLimit;
+        this.rating = rating;
 
     }
 
@@ -80,5 +79,41 @@ public class Movie{
         this.rating = body.getRating();
         this.ageLimit = body.getAgeLimit();
     }
+    @Column(length = 60)
+    String title;
+
+    @Column(length = 60)
+    String genre;
+
+    int price;
+
+    int ageLimit;
+
+    @Column(length = 10)
+    String rating;
+
+    @Column(length = 500)
+    String description;
+
+
+    @CreationTimestamp
+    LocalDateTime created;
+
+    @UpdateTimestamp
+    LocalDateTime edited;
+
+
+
+    /*
+    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
+    private Set<Reservation> reservations = new HashSet<>();
+
+
+
+    public void addReservation(Reservation res){
+        reservations.add(res);
+    }
+
+     */
 
 }
