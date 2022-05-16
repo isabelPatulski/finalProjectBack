@@ -21,6 +21,7 @@ import java.util.stream.Collectors;
 
 public class ReservationResponse {
 
+
     private Showing showing;
 
 

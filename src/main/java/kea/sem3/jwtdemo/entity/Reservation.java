@@ -22,7 +22,8 @@ public class Reservation {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    //der kan være mange reservationer til en fremvisning
+
+    /*der kan være mange reservationer til en fremvisning
     /*name er navngivning af den kollen der skal oprettes
     referencedColumnName er fra hvilken kolonne inforationen skal hentes fra
     informationen hentes fra showing-table og specifikt fra kolonen der hedder id,
@@ -31,7 +32,12 @@ public class Reservation {
     @JoinColumn(name = "showing_id", referencedColumnName = "id")
     private Showing showing;
 
-    @ManyToMany//TODO hvordan tilføjer man flere tabels på én table?
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "showseat_id", referencedColumnName = "id")
+    private ShowSeat showSeat;
+
+   /* @ManyToMany(cascade = CascadeType.ALL)
+    //TODO hvordan tilføjer man flere tabels på én table?
     // skal både have seat og showing samlet i denne tabel, hvordan gøres det?
 
     @JoinTable(
@@ -40,6 +46,7 @@ public class Reservation {
           inverseJoinColumns = @JoinColumn(name="seat_id")
     )
     private Set<Seat> seatsReserved= new HashSet<>();
+    */
 
 
     public Reservation() {

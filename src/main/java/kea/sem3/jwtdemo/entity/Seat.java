@@ -32,6 +32,12 @@ public class Seat {
     @JoinColumn(name = "cinema_hall_id",referencedColumnName = "id")
     private CinemaHall cinemaHall;
 
+    @OneToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "showseat_id", referencedColumnName = "id")
+    private ShowSeat showSeat;
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    private Reservation reservation;
 
 
     public Seat(int seatRow, int seatNumber, CinemaHall cinemaHall) {
@@ -40,8 +46,8 @@ public class Seat {
         this.cinemaHall=cinemaHall;
     }
 
-    @ManyToMany(mappedBy = "seatsReserved")
-    private Set<Reservation> reservations= new HashSet<>();
+   /* @ManyToMany(mappedBy = "seatsReserved")
+    private Set<Reservation> reservations= new HashSet<>();*/
 
 
     public Seat() {

@@ -67,6 +67,7 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
 
 
         //Showings
+        //Først skal det opretet showing-objekt gemmes
         Showing sh1 = showingRepository.save(new Showing(LocalDate.of(2022,5,14), LocalTime.of(12,00),90));
 
         //Her tilføjer en showing til en bestemt hall, hall c1
@@ -75,7 +76,8 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
         //Her tilføjer vi en bestemt film til en bestemt showing/visning
         m1.addShowing(sh1);
 
-        /*For at gemme de nye tilføjelser af film og hal, skal showing gemmes efter de to elementer er tilføjet
+        /*Herefter skal de nye tilføjelser gemmes.
+        For at gemme de nye tilføjelser af film og hal, skal showing gemmes efter de to elementer er tilføjet
         Ellers gemmes de nye tilføjelser ikke til den nyoprettet showing*/
         showingRepository.save(sh1);
 
@@ -105,21 +107,23 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
         showingRepository.save(sh6);
 
         //Reservations
+        //samme princip som i shwoing, med at gemme to gange gør sig også gældende her i reservation
         Reservation r1= reservationRepository.save(new Reservation());
         sh1.addReservation(r1);
         reservationRepository.save(r1);
-
-
     }
 
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
+        //Alle deleteAll, gør at hvis tabellerne allerede eksisterer slettes de
         movieRepository.deleteAll();
         cinemaHallrepository.deleteAll();
         showingRepository.deleteAll();
         seatRepository.deleteAll();
         reservationRepository.deleteAll();
+
+        //og herefter oprettes nye tabeller med data fra makePlainTestData-metoden
         makePlainTestData();
     }
 }

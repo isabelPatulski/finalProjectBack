@@ -13,8 +13,9 @@ import lombok.Setter;
 public class ReservationRequest {
 
     //private  int costumerId;
+    private int customerId;
 
     private int showingId;
 
-
+    private int seatId;
 }

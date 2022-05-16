@@ -36,6 +36,11 @@ public class Showing {
     int price;
 
     //Connecter hall & showing
+
+    /*Cascade gør at når denne showing slettes, så slettes hall også
+    Dette er ikke optimtalt, da en hall sagtens kan eksistere selvom en showing ikke eksisterer
+    Den bruges dog i dette projekt for at være sikker på at foreign-keys slettes ifm. deleteAll-metoden i config */
+
     @ManyToOne (cascade= CascadeType.ALL)
     // @JoinColumn(name = "cinema_hall_id")
     @JoinColumn(name= "cinema_hall_id", referencedColumnName= "id")
@@ -54,6 +59,14 @@ public class Showing {
         reservations.add(res);
         res.setShowing(this);
     }
+
+    @ManyToOne(cascade = CascadeType.ALL)
+    @JoinColumn(name = "showseat_id", referencedColumnName = "id")
+    private ShowSeat showSeat;
+
+   /* @ManyToMany(mappedBy = "seatsReserved",cascade= CascadeType.ALL)
+
+    private Set<Showing> showReserved= new HashSet<>();*/
 
     public Showing() {
     }
