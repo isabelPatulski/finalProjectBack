@@ -37,7 +37,6 @@ public class Customer {
     }
 
     public Customer() {
-
     }
 
     public Customer(CustomerRequest body) {
@@ -47,5 +46,5 @@ public class Customer {
         return reservations;
     }
 
-     */
+
 }

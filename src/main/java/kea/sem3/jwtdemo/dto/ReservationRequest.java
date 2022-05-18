@@ -6,6 +6,9 @@ import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
+import java.util.List;
+import java.util.Set;
+
 @Getter
 @Setter
 @NoArgsConstructor
@@ -17,5 +20,8 @@ public class ReservationRequest {
 
     private int showingId;
 
-    private int seatId;
+    /*En liste af seatId, som er reseveret
+    Listen skal gerne indeholde en liste over de seatId som er blevet reseveret*/
+    private int numbOfSeats;
+
 }

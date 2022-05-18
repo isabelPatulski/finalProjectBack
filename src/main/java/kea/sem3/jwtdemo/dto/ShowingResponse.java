@@ -2,10 +2,7 @@ package kea.sem3.jwtdemo.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import kea.sem3.jwtdemo.entity.CinemaHall;
-import kea.sem3.jwtdemo.entity.Movie;
-import kea.sem3.jwtdemo.entity.Reservation;
-import kea.sem3.jwtdemo.entity.Showing;
+import kea.sem3.jwtdemo.entity.*;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -23,28 +20,33 @@ import java.util.stream.Collectors;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class ShowingResponse {
 
-    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = JsonFormat.Shape.STRING)
+    @JsonFormat(shape = JsonFormat.Shape.STRING, pattern = "dd-MM-yyyy")
     LocalDate date;
 
-    @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = JsonFormat.Shape.STRING)
+    @JsonFormat(pattern="HH:mm:ss")
     LocalTime time;
 
     int price;
 
-    CinemaHall cinemaHall;
+    int cinemaHallId;
 
-    Movie movie;
+    String movie;
 
 
     public ShowingResponse(Showing showing){
         this.date=showing.getDate();
         this.time= showing.getTime();
         this.price=showing.getPrice();
-        this.cinemaHall=showing.getCinemaHall();
-        this.movie=showing.getMovie();
+        this.cinemaHallId = showing.getCinemaHall().getId();
+        this.movie= showing.getMovie().getTitle();
     }
+
 
     public static List<ShowingResponse> getShowingsFromEntities(List<Showing> showings){
         return showings.stream().map(showing-> new ShowingResponse(showing)).collect(Collectors.toList());
     }
+
+    /*public static List<ShowingResponse> getShowingsFromEntities(List<Showing> showings){
+        return showings.stream().map(showing-> new ShowingResponse(showing)).collect(Collectors.toList());
+    }*/
 }

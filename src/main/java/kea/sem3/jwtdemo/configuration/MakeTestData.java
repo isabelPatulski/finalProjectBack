@@ -23,15 +23,13 @@ public class MakeTestData implements ApplicationRunner {
     MovieRepository movieRepository;
     CinemaHallrepository cinemaHallrepository;
     ShowingRepository showingRepository;
-    SeatRepository seatRepository;
     ReservationRepository reservationRepository;
 
 
-    public MakeTestData(MovieRepository movieRepository, CinemaHallrepository cinemaHallrepository, ShowingRepository showingRepository, SeatRepository seatRepository, ReservationRepository reservationRepository) {
+    public MakeTestData(MovieRepository movieRepository, CinemaHallrepository cinemaHallrepository, ShowingRepository showingRepository, ReservationRepository reservationRepository) {
         this.movieRepository = movieRepository;
         this.cinemaHallrepository = cinemaHallrepository;
         this.showingRepository = showingRepository;
-        this.seatRepository = seatRepository;
         this.reservationRepository = reservationRepository;
     }
 
@@ -40,34 +38,16 @@ public class MakeTestData implements ApplicationRunner {
 
 //Movies
 
-Movie m1=  movieRepository.save(new Movie("The Green Man", "Horror", 80, "This is a description", "PG-13", 13));
-Movie m2=  movieRepository.save(new Movie("Some Women Dancing", "Comedy", 80, "This is a description", "PG", 7));
-Movie m3= movieRepository.save(new Movie("In Captivity", "Thriller", 80, "This is a description", "R", 18));
-Movie m4 = movieRepository.save(new Movie("The Love Birds", "Romance", 80, "This is a description", "PG-13", 13));
-Movie m5 =movieRepository.save(new Movie("Angry People Watching", "Action", 80, "This is a description", "PG-13", 13));
-Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80, "This is a description", "NC-17", 21));
+Movie m1= movieRepository.save(new Movie("The Lost City", "Horror", "This is a description", "PG-13", 13));
+Movie m2= movieRepository.save(new Movie("The Batman", "Comedy", "This is a description", "PG", 7));
 
 //Halls
-        CinemaHall c1 = new CinemaHall(10,10);
+        CinemaHall c1 = new CinemaHall(10);
         cinemaHallrepository.save(c1);
 
-       CinemaHall c2 = new CinemaHall(45,11);
+        CinemaHall c2 = new CinemaHall(30);
         cinemaHallrepository.save(c2);
 
-        CinemaHall c3 = new CinemaHall(30,12);
-        cinemaHallrepository.save(c3);
-
-        CinemaHall c4 = new CinemaHall(20,10);
-        cinemaHallrepository.save(c4);
-
-        CinemaHall c5 = new CinemaHall(40,10);
-        cinemaHallrepository.save(c5);
-
-        CinemaHall c6 = new CinemaHall(54,10);
-        cinemaHallrepository.save(c6);
-
-        CinemaHall c7 = new CinemaHall(23,10);
-        cinemaHallrepository.save(c7);
 
 
         //Showings
@@ -86,47 +66,76 @@ Movie m6 = movieRepository.save(new Movie("Space Walking", "Science Fiction", 80
         showingRepository.save(sh1);
 
         Showing sh2 =showingRepository.save(new Showing(LocalDate.of(2022,9,15), LocalTime.of(3,00),90));
-        c2.addShowing(sh2);
-        m2.addShowing(sh2);
+        c1.addShowing(sh2);
+        m1.addShowing(sh2);
         showingRepository.save(sh2);
 
-        Showing sh3 = showingRepository.save(new Showing(LocalDate.of(2022,7,13), LocalTime.of(1,00),90));
-        c3.addShowing(sh3);
-        m3.addShowing(sh3);
+        Showing sh3 = showingRepository.save(new Showing(LocalDate.of(2022,7,13), LocalTime.of(1,00),20));
+        c1.addShowing(sh3);
+        m1.addShowing(sh3);
         showingRepository.save(sh3);
 
-        Showing sh4 = showingRepository.save(new Showing(LocalDate.of(2022,8,12), LocalTime.of(2,00),90));
-        c4.addShowing(sh4);
-        m3.addShowing(sh4);
+        Showing sh4 = showingRepository.save(new Showing(LocalDate.of(2022,12,01), LocalTime.of(2,00),40));
+        c1.addShowing(sh4);
+        m1.addShowing(sh4);
         showingRepository.save(sh4);
 
-        Showing sh5 = showingRepository.save(new Showing(LocalDate.of(2022,3,16), LocalTime.of(2,00),90));
-        c5.addShowing(sh5);
-        m4.addShowing(sh5);
+        Showing sh5 = showingRepository.save(new Showing(LocalDate.of(2022,11,30), LocalTime.of(2,00),12));
+        c1.addShowing(sh5);
+        m1.addShowing(sh5);
         showingRepository.save(sh5);
 
-        Showing sh6 = showingRepository.save(new Showing(LocalDate.of(2022,2,17), LocalTime.of(2,00),90));
-        c6.addShowing(sh6);
-        m6.addShowing(sh6);
+        Showing sh6 = showingRepository.save(new Showing(LocalDate.of(2022,9,22), LocalTime.of(2,00),90));
+        c1.addShowing(sh6);
+        m1.addShowing(sh6);
         showingRepository.save(sh6);
 
+        Showing sh7 = showingRepository.save(new Showing(LocalDate.of(2022,6,10), LocalTime.of(2,00),90));
+        c1.addShowing(sh7);
+        m1.addShowing(sh7);
+        showingRepository.save(sh7);
+
+        Showing sh8 = showingRepository.save(new Showing(LocalDate.of(2022,4,16), LocalTime.of(2,00),90));
+        c2.addShowing(sh8);
+        m2.addShowing(sh8);
+        showingRepository.save(sh8);
+
+        Showing sh9 = showingRepository.save(new Showing(LocalDate.of(2022,2,17), LocalTime.of(2,00),90));
+        c2.addShowing(sh9);
+        m2.addShowing(sh9);
+        showingRepository.save(sh9);
+
+        Showing sh10 = showingRepository.save(new Showing(LocalDate.of(2022,1,14), LocalTime.of(2,00),90));
+        c2.addShowing(sh10);
+        m2.addShowing(sh10);
+        showingRepository.save(sh10);
+
         //Reservations
-        //samme princip som i shwoing, med at gemme to gange gør sig også gældende her i reservation
+        //samme princip som i showing, med at gemme to gange gør sig også gældende her i reservation
         Reservation r1= reservationRepository.save(new Reservation());
         sh1.addReservation(r1);
+        r1.setNumbOfSeats(10);
         reservationRepository.save(r1);
+
+        Reservation r2= reservationRepository.save(new Reservation());
+        sh1.addReservation(r2);
+        r2.setNumbOfSeats(44);
+        reservationRepository.save(r2);
+
+        Reservation r3= reservationRepository.save(new Reservation());
+        sh10.addReservation(r3);
+        r3.setNumbOfSeats(80);
+        reservationRepository.save(r3);
+
     }
 
     @Override
     public void run(ApplicationArguments args) throws Exception {
-        //Alle deleteAll, gør at hvis tabellerne allerede eksisterer slettes de
-        movieRepository.deleteAll();
+        //og herefter oprettes nye tabeller med data fra makePlainTestData-metoden
+        /* movieRepository.deleteAll();
         cinemaHallrepository.deleteAll();
         showingRepository.deleteAll();
-        seatRepository.deleteAll();
-        reservationRepository.deleteAll();
-
-        //og herefter oprettes nye tabeller med data fra makePlainTestData-metoden
+        reservationRepository.deleteAll(); */
         makePlainTestData();
 
 

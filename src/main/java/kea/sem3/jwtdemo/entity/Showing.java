@@ -42,33 +42,24 @@ public class Showing {
     Den bruges dog i dette projekt for at være sikker på at foreign-keys slettes ifm. deleteAll-metoden i config */
 
     @ManyToOne (cascade= CascadeType.ALL)
-    // @JoinColumn(name = "cinema_hall_id")
-    @JoinColumn(name= "cinema_hall_id", referencedColumnName= "id")
     private CinemaHall cinemaHall;
 
-
     //Connecter movie & showing
-    @ManyToOne (cascade= CascadeType.ALL)
-    @JoinColumn(name= "movie_id", referencedColumnName= "id")
+    @ManyToOne(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
     private Movie movie;
 
     @OneToMany(mappedBy = "showing")
     private Set<Reservation> reservations= new HashSet<>();
-
     public void addReservation(Reservation res){
         reservations.add(res);
         res.setShowing(this);
     }
 
-    @ManyToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "showseat_id", referencedColumnName = "id")
-    private ShowSeat showSeat;
-
-   /* @ManyToMany(mappedBy = "seatsReserved",cascade= CascadeType.ALL)
-
-    private Set<Showing> showReserved= new HashSet<>();*/
-
-    public Showing() {
+    public Showing(LocalDate date, LocalTime time, Movie movie, CinemaHall cinemaHall) {
+    this.date=date;
+    this.time=time;
+    this.movie= movie;
+    this.cinemaHall=cinemaHall;
     }
 
     public Showing(LocalDate date, LocalTime time, int price) {
@@ -77,10 +68,7 @@ public class Showing {
         this.price = price;
     }
 
-    public Showing(ShowingRequest body){
-        this.date = body.getDate();
-        this.time = body.getTime();
-        this.price = body.getPrice();
+    public Showing() {
     }
 
 }

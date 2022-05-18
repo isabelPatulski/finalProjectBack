@@ -2,16 +2,11 @@ package kea.sem3.jwtdemo.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import kea.sem3.jwtdemo.entity.Reservation;
-import kea.sem3.jwtdemo.entity.Seat;
-import kea.sem3.jwtdemo.entity.Showing;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.time.LocalDate;
-import java.time.LocalDateTime;
 import java.util.List;
-import java.util.Set;
 import java.util.stream.Collectors;
 
 @Getter
@@ -22,11 +17,14 @@ import java.util.stream.Collectors;
 public class ReservationResponse {
 
 
-    private Showing showing;
-
+    private String movieTtitle;
+    private int cinemaHallId;
+    private int numbSeats;
 
     public ReservationResponse(Reservation res){
-        this.showing=res.getShowing();
+        this.movieTtitle = res.getShowing().getMovie().getTitle();
+        this.cinemaHallId = res.getShowing().getCinemaHall().getId();
+        this.numbSeats= res.getNumbOfSeats();
     }
 
     public static List<ReservationResponse> getShowingsFromEntities(List<Reservation> reservations){
