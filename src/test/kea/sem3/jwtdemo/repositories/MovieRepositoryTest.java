@@ -19,8 +19,8 @@ class MovieRepositoryTest {
 
     @BeforeAll
     static void setUp(@Autowired MovieRepository movieRepository) {
-        movie1 = movieRepository.save(new Movie("The Green Man", "Horror", 80, "This is a description", "PG-13", 13)).getId();
-        movie2 = movieRepository.save(new Movie("The Yellow Man", "Adventure", 50, "This is also a description", "PG", 7)).getId();
+        movie1 = movieRepository.save(new Movie("The Green Man", "Horror", "This is a description","PG-13", 13)).getId();
+        movie2 = movieRepository.save(new Movie("The Yellow Man", "Adventure", "This is also a description", "PG", 7)).getId();
     }
 
     @Test
