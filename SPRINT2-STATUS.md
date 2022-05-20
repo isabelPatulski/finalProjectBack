@@ -15,15 +15,16 @@ A section "Who did what" with a section for each member in the group, written by
     Andrea:  
     
     Planlagt: 
-    Få styr på relationerne mellem alle klasserne(undtaget customer)
-    Få de andre klasser til ar ryge over på DB
-    hvordan relations-data håndteres i dto
-    få ordnet servicelag for alle klasserne
+    - Få styr på relationerne mellem alle klasserne(undtaget customer)
+    - Få de andre klasser til ar ryge over på DB
+    - hvordan relations-data håndteres i dto
+    - få ordnet servicelag for alle klassern
+    - få styr på test
     
     Udført:
-    fået alle relationerne mellem alle klasserne(undtaget customer) korrekt implementeret
-    fået testdata fra de forskellige klasser (undtaget customer) registreret i DB
-    Reservation driller stadig
+    - fået alle relationerne mellem alle klasserne(undtaget customer) korrekt implementeret
+    - fået testdata fra de forskellige klasser (undtaget customer) registreret i DB
+    - Reservation driller stadig
         
 
 A list of sprint tasks you expect to complete in Sprint-2
