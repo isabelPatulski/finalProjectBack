@@ -30,8 +30,6 @@ public class CustomerController {
     @GetMapping
     List<Customer> getCustomers() {return customerRepository.findAll();}
 
-    @PostMapping
-    Customer createCustomer (@RequestBody Customer customer) {return customerRepository.save(customer);}
 
     @GetMapping("/{id}")
     public CustomerResponse getCustomer(@PathVariable int id) throws Exception {

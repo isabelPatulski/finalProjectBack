@@ -19,6 +19,7 @@ public class Customer {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
+    @Column(length = 100)
     String username;
     String email;
     int birthday;
@@ -36,7 +37,6 @@ public class Customer {
     }
 
     public Customer() {
-
     }
 
     public Customer(CustomerRequest body) {

@@ -27,34 +27,11 @@ public class Movie{
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;
 
-    public Movie() {}
-
-
-    public Movie(String title, String genre, int price, String description, String rating, int ageLimit) {
-        this.title = title;
-        this.genre = genre;
-        this.description = description;
-        this.price = price;
-        this.ageLimit = ageLimit;
-        this.rating = rating;
-
-    }
-
-    public Movie(MovieRequest body){
-        this.title = body.getTitle();
-        this.genre = body.getGenre();
-        this.price = body.getPrice();
-        this.description = body.getDescription();
-        this.rating = body.getRating();
-        this.ageLimit = body.getAgeLimit();
-    }
     @Column(length = 60)
     String title;
 
     @Column(length = 60)
     String genre;
-
-    int price;
 
     int ageLimit;
 
@@ -64,14 +41,37 @@ public class Movie{
     @Column(length = 500)
     String description;
 
-
     @CreationTimestamp
     LocalDateTime created;
 
     @UpdateTimestamp
     LocalDateTime edited;
 
+    @OneToMany(mappedBy = "movie", fetch = FetchType.EAGER)
+    private Set<Showing> showings = new HashSet<>();
+    public void addShowing(Showing sh){
+        showings.add(sh);
+        sh.setMovie(this);
+    }
 
+    public Movie() {}
+
+
+    public Movie(String title, String genre, String description, String rating, int ageLimit) {
+        this.title = title;
+        this.genre = genre;
+        this.description = description;
+        this.ageLimit = ageLimit;
+        this.rating = rating;
+    }
+
+    public Movie(MovieRequest body){
+        this.title = body.getTitle();
+        this.genre = body.getGenre();
+        this.description = body.getDescription();
+        this.rating = body.getRating();
+        this.ageLimit = body.getAgeLimit();
+    }
 
     /*
     @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
