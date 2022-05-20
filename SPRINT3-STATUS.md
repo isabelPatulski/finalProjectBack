@@ -10,6 +10,24 @@ A section "Who did what" with a section for each member in the group, written by
 
     Isabel:
     
+    Planlagt:
+    -Få styr på login og reservation i frontend (metoder i javascript og html)
+    -Få lavet layout på frontend til reservation og log ing
+    -Få lavet connection mellem login/registrer metoder i backend/frontend
+    -Test metoder både i frontend og backend
+    
+    Udført:
+    -Frontend layout til loging/register
+    -Metoder i frontend til login/register
+    -Rettelser på metoder i backend så de spillede sammen med frontend
+
+    Hvad jeg ikke nåede:
+    - Få login/register til at virke
+    - Skabe ordenlig connection mellem metoderne i backend og frontend
+    - Test
+    
+    
+    
 
     
     Andrea:  
