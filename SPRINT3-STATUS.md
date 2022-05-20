@@ -27,6 +27,11 @@ A section "Who did what" with a section for each member in the group, written by
     Alle klassernes data kan vises på browser
     fået gennemgået test sammen med Casper
     
+    Hvad jeg ikke nåede:
+    at gøre det muligt at reseverer et sæde
+    at kunne slette og redigerer
+    at være på frontend-delen
+    
     
     
     A list of sprint tasks you expect to complete in Sprint-2
