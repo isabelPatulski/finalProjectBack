@@ -11,9 +11,21 @@ A section "Who did what" with a section for each member in the group, written by
         - Create a Jira project for the team to help coordinate and track each other's work.
 
     Isabel:
+    
 
     
-    Andrea:
+    Andrea:    
+    plan: 
+    lavet et ER-diagram
+    få virtual machine op at køre
+    lave skelet til showing, reservation og Seats
+    
+    Udført:
+    Fået styr på ER-diagram dvs. slettet popularity, date, genre & ParentelRating
+    Sørget for at testData for showing og seats ryger over i DB og at korrekte relationer også medfølger
+    
+    og tilføjet showSeats
+    gået igang med relaationer mellem alle klasserne (undtaget )
         
 
 A list of sprint tasks you expect to complete in Sprint-2
