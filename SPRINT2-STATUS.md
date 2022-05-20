@@ -25,6 +25,17 @@ A section "Who did what" with a section for each member in the group, written by
     - fået alle relationerne mellem alle klasserne(undtaget customer) korrekt implementeret
     - fået testdata fra de forskellige klasser (undtaget customer) registreret i DB
     - Reservation driller stadig
+    
+    Casper:
+   
+    Planlagt:
+    - Kigget på Seats og CinemaHall i Backenden
+    - Startet opbygning af Frontend og skabe tilslutning med MovieDatabase API samt backenden
+    - Lav flow af frontend
+    
+    Udført:
+    - Frontend skelet færdig, samt mange funktioner tilført
+    - Adgang til Movie DataBase API oprettet samt den layout på siden
         
 
 A list of sprint tasks you expect to complete in Sprint-2
