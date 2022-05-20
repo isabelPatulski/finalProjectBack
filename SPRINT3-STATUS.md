@@ -5,8 +5,18 @@ A short list, explaining how far you came in this sprint
     The virtual database is working but, we are experiancing some problems with dublicate tabels being created.
 
 A section "Who did what" with a section for each member in the group, written by each member, explaining what you specifically did in this sprint.
+
     Casper:
+       Planlagt:
+       - Fungerende frontend fra startside til sæde reservation
+       - Vise en films visninger samt dens sæde bookings side
+       - Metode til at booke plads til en film.
+       - Oprette en godkendt besked efter en fuldendt booking
        
+       Udført:
+       - Hele flowet fungere, dog nogle enkelte methoder virker ikke 100% såsom
+            - Book seats
+            - Godgendt besked med den relateret data
 
     Isabel:
     
