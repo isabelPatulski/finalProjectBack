@@ -21,14 +21,17 @@ public class CustomerService {
         List<Customer> customers =  customerRepository.findAll();
         return CustomerResponse.getCustomersFromEntities(customers);
     }
-    public CustomerResponse getCustomer(int id) throws Exception {
-        Customer customer = customerRepository.findById(id).orElseThrow(()->new Client4xxException("No customer with this id exists"));
+    public CustomerResponse getCustomer(String email) throws Exception {
+        Customer customer = customerRepository.findByEmail(email);//.orElseThrow(()->new Client4xxException("No customer with this email exists"));
         return new CustomerResponse(customer);
     }
+
+
     public CustomerResponse addCustomer(CustomerRequest body){
         Customer newCustomer = customerRepository.save(new Customer(body));
         return new CustomerResponse(newCustomer);
     }
+
     public CustomerResponse editCustomer(CustomerRequest customerToEdit, int customerId){
         Customer customer = customerRepository.findById(customerId).orElseThrow(()-> new Client4xxException("No customer with provided ID found"));
         customer.setUsername(customerToEdit.getUsername());

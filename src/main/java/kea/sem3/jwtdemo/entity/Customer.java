@@ -3,6 +3,7 @@ package kea.sem3.jwtdemo.entity;
 import com.fasterxml.jackson.annotation.JsonIgnore;
 import kea.sem3.jwtdemo.dto.CustomerRequest;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 import lombok.ToString;
 
@@ -13,33 +14,33 @@ import java.util.Set;
 @Entity
 @Getter
 @Setter
+@NoArgsConstructor
 @ToString
 
 public class Customer {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
+    private String email;
     @Column(length = 100)
-    String username;
-    String email;
-    int birthday;
+    private String username;
+    private String password;
+    private boolean loggedIn;
 
     @JsonIgnore
     @OneToMany(mappedBy = "customer")
     private Set<Reservation> reservations = new HashSet <>();
 
 
-    public Customer(int id, String username, String surname, String email, int birthday) {
-        this.id = id;
+    public Customer(String password, String username, String email, boolean loggedIn) {
         this.username = username;
         this.email = email;
-        this.birthday = birthday;
-    }
-
-    public Customer() {
+        this.password=password;
+        this.loggedIn = false;
     }
 
     public Customer(CustomerRequest body) {
+        this.username = body.getUsername();
+        this.email = body.getEmail();
+        this.password = body.getPassword();
     }
 
     public Set<Reservation> getReservations() {
