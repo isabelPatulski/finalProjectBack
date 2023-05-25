@@ -1,18 +1,17 @@
 package kea.sem3.jwtdemo.repositories;
 
 
-import com.sun.xml.bind.v2.model.core.ID;
-import kea.sem3.jwtdemo.entity.Customer;
+import kea.sem3.jwtdemo.entity.User;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
 @Repository
-public interface CustomerRepository extends JpaRepository<Customer, Integer> {
+public interface UserRepository extends JpaRepository<User, Integer> {
     Boolean existsByEmail(String email);
-    Customer findByEmail (String email);
+    User findByEmail (String email);
 
-    @Query("select (count(m) > 0) from Customer m where m.email = :email")
+    @Query("select (count(m) > 0) from User m where m.email = :email")
     boolean emailExist(String email);
 
 }

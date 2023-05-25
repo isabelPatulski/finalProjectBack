@@ -1,16 +1,9 @@
 package kea.sem3.jwtdemo.api;
 
-import kea.sem3.jwtdemo.dto.CustomerRequest;
-import kea.sem3.jwtdemo.dto.CustomerResponse;
-import kea.sem3.jwtdemo.entity.Customer;
-import kea.sem3.jwtdemo.repositories.CustomerRepository;
+import kea.sem3.jwtdemo.dto.UserRequest;
+import kea.sem3.jwtdemo.dto.UserResponse;
 import kea.sem3.jwtdemo.service.AuthService;
-import kea.sem3.jwtdemo.service.CustomerService;
-import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.*;
-
-import javax.validation.Valid;
-import java.util.List;
 
 @CrossOrigin
 @RestController
@@ -25,7 +18,7 @@ public class AuthController {
 
 
     @PostMapping()
-    public CustomerResponse loginCustomer(@RequestBody CustomerRequest body) {
+    public UserResponse login(@RequestBody UserRequest body) {
         System.out.println(body);
         return authService.login(body.getEmail(), body.getPassword());
     }

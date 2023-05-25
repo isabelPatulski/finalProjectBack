@@ -2,10 +2,7 @@ package kea.sem3.jwtdemo.api;
 
 import kea.sem3.jwtdemo.dto.ReservationRequest;
 import kea.sem3.jwtdemo.dto.ReservationResponse;
-import kea.sem3.jwtdemo.dto.ShowingResponse;
-import kea.sem3.jwtdemo.entity.Customer;
-import kea.sem3.jwtdemo.entity.Reservation;
-import kea.sem3.jwtdemo.repositories.CustomerRepository;
+import kea.sem3.jwtdemo.repositories.UserRepository;
 import kea.sem3.jwtdemo.repositories.ReservationRepository;
 import kea.sem3.jwtdemo.service.ReservationService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +21,7 @@ public class ReservationController {
     ReservationService reservationService;
 
     @Autowired
-    CustomerRepository customerRepository;
+    UserRepository customerRepository;
 
     @GetMapping
     List<ReservationResponse> getReservations () {

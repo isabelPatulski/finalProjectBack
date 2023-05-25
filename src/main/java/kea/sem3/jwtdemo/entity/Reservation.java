@@ -1,17 +1,11 @@
 package kea.sem3.jwtdemo.entity;
 
 
-import kea.sem3.jwtdemo.dto.MovieRequest;
-import kea.sem3.jwtdemo.dto.ReservationRequest;
 import lombok.Getter;
 import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
-import java.time.LocalDate;
-import java.util.*;
-import java.util.HashSet;
-import java.util.Set;
 
 @Entity
 @Getter
@@ -35,9 +29,9 @@ public class Reservation {
     private Showing showing;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private Customer customer;
+    private User customer;
 
-    public Reservation(int numbOfSeats, Showing showing, Customer customer) {
+    public Reservation(int numbOfSeats, Showing showing, User customer) {
         this.numbOfSeats = numbOfSeats;
         this.showing=showing;
         this.customer = customer;

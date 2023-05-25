@@ -2,7 +2,7 @@ package kea.sem3.jwtdemo.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
 import com.fasterxml.jackson.annotation.JsonInclude;
-import kea.sem3.jwtdemo.entity.Customer;
+import kea.sem3.jwtdemo.entity.User;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -15,7 +15,7 @@ import java.util.stream.Collectors;
 @Setter
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
-public class CustomerResponse {
+public class UserResponse {
     int id;
 
     String username;
@@ -26,14 +26,14 @@ public class CustomerResponse {
     @JsonFormat(pattern = "dd-MM-yyyy hh:mm:ss",shape = JsonFormat.Shape.STRING)
     LocalDateTime updated;
 
-    public CustomerResponse(Customer customer) {
-        this.username = customer.getUsername();
-        this.email = customer.getEmail();
+    public UserResponse(User user) {
+        this.username = user.getUsername();
+        this.email = user.getEmail();
 
     }
 
-    public static List<kea.sem3.jwtdemo.dto.CustomerResponse> getCustomersFromEntities(List<Customer> customers){
-        return customers.stream().map(customer-> new kea.sem3.jwtdemo.dto.CustomerResponse(customer)).collect(Collectors.toList());
+    public static List<UserResponse> getUsersFromEntities(List<User> users){
+        return users.stream().map(user-> new UserResponse(user)).collect(Collectors.toList());
     }
 }
 
