@@ -1,13 +1,10 @@
 package kea.sem3.jwtdemo.dto;
 
-import kea.sem3.jwtdemo.entity.Reservation;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
 
-import java.util.List;
-import java.util.Set;
 
 @Getter
 @Setter
@@ -16,7 +13,7 @@ import java.util.Set;
 public class ReservationRequest {
 
     //private  int costumerId;
-    private int customerId;
+    //private int customerId;
 
     private int showingId;
 

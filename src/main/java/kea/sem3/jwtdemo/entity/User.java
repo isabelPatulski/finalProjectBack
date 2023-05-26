@@ -23,7 +23,7 @@ public class User {
     @Column(length = 100)
     private String username;
     private String password;
-    private boolean loggedIn;
+    boolean loggedIn;
 
     @JsonIgnore
     @OneToMany(mappedBy = "user")
@@ -34,7 +34,9 @@ public class User {
         this.username = username;
         this.email = email;
         this.password=password;
-        this.loggedIn = false;
+        this.loggedIn =loggedIn;
+    }
+    public boolean getLoggedIn () { return this.loggedIn;
     }
 
     public User(UserRequest body) {

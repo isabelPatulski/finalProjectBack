@@ -29,12 +29,12 @@ public class Reservation {
     private Showing showing;
 
     @ManyToOne(cascade = CascadeType.ALL)
-    private User customer;
+    private User user;
 
-    public Reservation(int numbOfSeats, Showing showing, User customer) {
+    public Reservation(int numbOfSeats, Showing showing, User user) {
         this.numbOfSeats = numbOfSeats;
         this.showing=showing;
-        this.customer = customer;
+        this.user = user;
     }
 
     public Reservation() {

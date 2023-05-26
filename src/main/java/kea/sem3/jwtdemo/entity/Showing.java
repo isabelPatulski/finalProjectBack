@@ -20,7 +20,6 @@ import java.util.Set;
 @Setter
 @ToString
 public class Showing {
-//Andrea Brinkbøl
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

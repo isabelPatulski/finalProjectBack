@@ -17,6 +17,14 @@ public class AuthService {
         this.userRepository = userRepository;
     }
 
+    public boolean isLoggedIn (){
+        if (user==null){
+            return false;
+        }
+        else {
+            return user.getLoggedIn();
+        }
+    }
 
     public UserResponse login(String email , String password) {
         user = userRepository.findByEmail(email);

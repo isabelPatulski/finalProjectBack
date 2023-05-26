@@ -15,7 +15,6 @@ import java.util.Set;
 @ToString
 
 public class CinemaHall {
-    //Andrea & Isabel
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     int id;

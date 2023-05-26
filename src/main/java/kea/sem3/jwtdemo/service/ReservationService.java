@@ -17,13 +17,13 @@ public class ReservationService {
     ReservationRepository reservationRepository;
     MovieRepository movieRepository;
     ShowingRepository showingRepository;
-    UserRepository customerRepository;
+    UserRepository userRepository;
 
-    public ReservationService(ReservationRepository reservationRepository, MovieRepository movieRepository, ShowingRepository showingRepository, UserRepository customerRepository) {
+    public ReservationService(ReservationRepository reservationRepository, MovieRepository movieRepository, ShowingRepository showingRepository, UserRepository userRepository) {
         this.reservationRepository = reservationRepository;
         this.movieRepository = movieRepository;
         this.showingRepository = showingRepository;
-        this.customerRepository = customerRepository;
+        this.userRepository = userRepository;
     }
 
     public ReservationResponse getReservation(int id){
@@ -34,13 +34,13 @@ public class ReservationService {
         return ReservationResponse.getShowingsFromEntities(reservationRepository.findAll());
     }
 
-    public ReservationResponse create(ReservationRequest reservationRequest) {
+    /*public ReservationResponse create(ReservationRequest reservationRequest) {
         Showing showing = showingRepository.findById(reservationRequest.getShowingId()).orElseThrow();
-        User customer = customerRepository.findById(reservationRequest.getCustomerId()).orElseThrow();
+        //User user = userRepository.findById(reservationRequest.getU()).orElseThrow();
         //  public Reservation(int numbOfSeats, Showing showing, Customer customer)
-        Reservation reservation = new Reservation(reservationRequest.getNumbOfSeats(),showing, customer);
+        Reservation reservation = new Reservation(reservationRequest.getNumbOfSeats(),showing, user);
         ReservationResponse reservationResponse = new ReservationResponse(reservation);
 
         return reservationResponse;
-    }
+    }*/
 }

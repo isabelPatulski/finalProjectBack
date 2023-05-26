@@ -21,7 +21,7 @@ public class ReservationController {
     ReservationService reservationService;
 
     @Autowired
-    UserRepository customerRepository;
+    UserRepository userRepository;
 
     @GetMapping
     List<ReservationResponse> getReservations () {
@@ -34,9 +34,9 @@ public class ReservationController {
         return reservationService.getReservation(id);
     }
 
-    @PostMapping
+    /*@PostMapping
     ReservationResponse createReservation (@RequestBody ReservationRequest reservationRequest) {
-        return reservationService.create(reservationRequest);}
+        return reservationService.create(reservationRequest);}*/
 
 
    /* @PutMapping("/{reservationId}/customer/{customerId}")

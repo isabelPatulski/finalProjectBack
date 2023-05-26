@@ -73,16 +73,5 @@ public class Movie{
         this.ageLimit = body.getAgeLimit();
     }
 
-    /*
-    @OneToMany (mappedBy = "reservedMovie", fetch = FetchType.EAGER)
-    private Set<Reservation> reservations = new HashSet<>();
-
-
-
-    public void addReservation(Reservation res){
-        reservations.add(res);
-    }
-
-     */
 
 }
