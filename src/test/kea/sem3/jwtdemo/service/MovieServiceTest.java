@@ -3,7 +3,7 @@ package kea.sem3.jwtdemo.service;
 import kea.sem3.jwtdemo.dto.MovieRequest;
 import kea.sem3.jwtdemo.dto.MovieResponse;
 import kea.sem3.jwtdemo.entity.Movie;
-import kea.sem3.jwtdemo.repositories.MovieRepository;
+import kea.sem3.jwtdemo.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeAll;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;

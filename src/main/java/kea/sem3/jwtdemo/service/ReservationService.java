@@ -1,10 +1,6 @@
 package kea.sem3.jwtdemo.service;
 
 
-import kea.sem3.jwtdemo.dto.ReservationRequest;
-import kea.sem3.jwtdemo.dto.ReservationResponse;
-
-import kea.sem3.jwtdemo.entity.*;
 import kea.sem3.jwtdemo.error.Client4xxException;
 
 import kea.sem3.jwtdemo.repositories.*;
@@ -15,11 +11,11 @@ import java.util.List;
 @Service
 public class ReservationService {
     ReservationRepository reservationRepository;
-    MovieRepository movieRepository;
-    ShowingRepository showingRepository;
+    RecipeRepository movieRepository;
+    IngredientRepository showingRepository;
     UserRepository userRepository;
 
-    public ReservationService(ReservationRepository reservationRepository, MovieRepository movieRepository, ShowingRepository showingRepository, UserRepository userRepository) {
+    public ReservationService(ReservationRepository reservationRepository, RecipeRepository movieRepository, IngredientRepository showingRepository, UserRepository userRepository) {
         this.reservationRepository = reservationRepository;
         this.movieRepository = movieRepository;
         this.showingRepository = showingRepository;

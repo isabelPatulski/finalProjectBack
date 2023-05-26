@@ -4,7 +4,7 @@ import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import kea.sem3.jwtdemo.dto.MovieRequest;
 import kea.sem3.jwtdemo.entity.Movie;
-import kea.sem3.jwtdemo.repositories.MovieRepository;
+import kea.sem3.jwtdemo.repositories.RecipeRepository;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;

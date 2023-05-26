@@ -1,7 +1,8 @@
 package kea.sem3.jwtdemo.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import kea.sem3.jwtdemo.entity.Showing;
+import kea.sem3.jwtdemo.entity.Recipe;
+import kea.sem3.jwtdemo.entity.Ingredient;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -13,13 +14,11 @@ import java.util.Set;
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
-public class MovieRequest {
-    private String title;
-    private String genre;
+public class RecipeRequest {
+    private String name;
     private String description;
-    private int ageLimit;
-    private String rating;
+    private Recipe.Status mealType;
 
     @JsonIgnore
-    private Set<Showing> showings;
+    private Set<Ingredient> showings;
 }
