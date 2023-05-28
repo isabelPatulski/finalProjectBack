@@ -19,7 +19,7 @@ public class RecipeController {
 
         @GetMapping
         public List<RecipeResponse> getRecipes(){
-            return recipeService.getMovies();
+            return recipeService.getRecipes();
         }
 
         @GetMapping("/{id}")

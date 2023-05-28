@@ -16,7 +16,7 @@ public class RecipeService {
             this.recipeRepository = recipeRepository;
         }
 
-        public List<RecipeResponse> getMovies(){
+        public List<RecipeResponse> getRecipes(){
             List<Recipe> recipes =  recipeRepository.findAll();
             return RecipeResponse.getRecipesFromEntities(recipes);
         }

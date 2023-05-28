@@ -30,7 +30,4 @@ public class IngredientResponse {
         return ingredients.stream().map(ingredient-> new IngredientResponse(ingredient)).collect(Collectors.toList());
     }
 
-    /*public static List<ShowingResponse> getShowingsFromEntities(List<Showing> showings){
-        return showings.stream().map(showing-> new ShowingResponse(showing)).collect(Collectors.toList());
-    }*/
 }

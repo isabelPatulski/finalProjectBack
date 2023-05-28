@@ -19,6 +19,4 @@ public class RecipeRequest {
     private String description;
     private Recipe.Status mealType;
 
-    @JsonIgnore
-    private Set<Ingredient> showings;
 }

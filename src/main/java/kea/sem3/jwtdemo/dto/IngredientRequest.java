@@ -14,12 +14,8 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class IngredientRequest {
-
     private int price;
-
     private String name;
-
-    public int recipeId;
 
 
 }

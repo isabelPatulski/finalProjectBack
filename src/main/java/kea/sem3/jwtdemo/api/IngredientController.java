@@ -29,8 +29,4 @@ public class IngredientController {
         return ingredientService.getIngredient(id);
     }
 
-    /*@PostMapping
-    public IngredientResponse createIngredient(@RequestBody IngredientRequest showingRequest){
-        return ingredientService.(showingRequest);
-    }*/
 }

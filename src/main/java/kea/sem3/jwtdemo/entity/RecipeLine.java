@@ -1,5 +1,7 @@
 package kea.sem3.jwtdemo.entity;
 
+import kea.sem3.jwtdemo.dto.RecipeLineRequest;
+import kea.sem3.jwtdemo.dto.RecipeRequest;
 import kea.sem3.jwtdemo.entity.Ingredient;
 import kea.sem3.jwtdemo.entity.Recipe;
 import lombok.Getter;
@@ -31,13 +33,19 @@ public class RecipeLine {
     private String narration;
 
     public RecipeLine(Ingredient ingredient, MeasurementType measureType, String narration) {
-        this.ingredient = ingredient;
+        //this.ingredient = ingredient;
         this.measureType = measureType;
         this.narration = narration;
+    }
+
+    public RecipeLine(RecipeLineRequest body){
+        this.measureType = body.getMeasurementType();
+        this.narration = body.getNarration();
     }
 
     public enum MeasurementType {
         LITER,
         CUP,
         GRAM,
+    }
 }

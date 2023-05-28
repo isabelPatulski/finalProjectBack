@@ -25,10 +25,6 @@ public class User {
     private String password;
     boolean loggedIn;
 
-    @JsonIgnore
-    @OneToMany(mappedBy = "user")
-    private Set<Reservation> reservations = new HashSet <>();
-
 
     public User(String password, String username, String email, boolean loggedIn) {
         this.username = username;
@@ -44,10 +40,5 @@ public class User {
         this.email = body.getEmail();
         this.password = body.getPassword();
     }
-
-    public Set<Reservation> getReservations() {
-        return reservations;
-    }
-
 
 }

@@ -29,14 +29,9 @@ public class IngredientService {
         return IngredientResponse.getIngredientsFromEntities(ingredientRepository.findAll());
     }
 
-   /* public IngredientResponse createIngredient(IngredientRequest ingredientRequest){
-    Recipe recipe = recipeRepository.findById(ingredientRequest.getRecipeId()).orElseThrow();
-
-
-    IngredientResponse ingredientResponse = new IngredientResponse(ingredient);
-
-    return showingResponse;
-
-    }*/
+    public IngredientResponse addIngredient(IngredientRequest body){
+        Ingredient newIngredient = ingredientRepository.save(new Ingredient(body));
+        return new IngredientResponse(newIngredient);
+    }
 
 }

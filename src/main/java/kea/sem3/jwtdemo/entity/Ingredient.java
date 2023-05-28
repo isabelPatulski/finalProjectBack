@@ -1,5 +1,7 @@
 package kea.sem3.jwtdemo.entity;
 
+import kea.sem3.jwtdemo.dto.IngredientRequest;
+import kea.sem3.jwtdemo.dto.RecipeRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -27,7 +29,6 @@ public class Ingredient {
     Dette er ikke optimtalt, da en hall sagtens kan eksistere selvom en showing ikke eksisterer
     Den bruges dog i dette projekt for at være sikker på at foreign-keys slettes ifm. deleteAll-metoden i config */
 
-    //Connecter movie & showing
     @ManyToOne(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
     private Recipe recipe;
 
@@ -35,6 +36,11 @@ public class Ingredient {
     public Ingredient(String name, int price) {
     this.name = name;
     this.price = price;
+    }
+
+    public Ingredient(IngredientRequest body){
+        this.name = body.getName();
+        this.price = body.getPrice();
     }
 
 
