@@ -20,7 +20,7 @@ public class IngredientService {
         this.recipeRepository = recipeRepository;
     }
 
-    public IngredientResponse getIngredient(int id){
+    public IngredientResponse getIngredient(String id){
         Ingredient ingredient = ingredientRepository.findById(id).orElseThrow(()-> new Client4xxException("No ingredient with reservation id:" + id));
         return new IngredientResponse(ingredient);
     }
@@ -32,6 +32,11 @@ public class IngredientService {
     public IngredientResponse addIngredient(IngredientRequest body){
         Ingredient newIngredient = ingredientRepository.save(new Ingredient(body));
         return new IngredientResponse(newIngredient);
+    }
+
+    public void deleteIngredient (String name) {
+        Ingredient ingredientToDelete = ingredientRepository.findById(name).orElseThrow(()-> new Client4xxException("No ingredient with reservation id:" + name));
+        ingredientRepository.delete(ingredientToDelete);
     }
 
 }

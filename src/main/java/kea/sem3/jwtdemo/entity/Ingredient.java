@@ -16,10 +16,6 @@ import javax.persistence.*;
 public class Ingredient {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-
-    @Column(length = 15)
     String name;
 
     @Column
@@ -29,8 +25,8 @@ public class Ingredient {
     Dette er ikke optimtalt, da en hall sagtens kan eksistere selvom en showing ikke eksisterer
     Den bruges dog i dette projekt for at være sikker på at foreign-keys slettes ifm. deleteAll-metoden i config */
 
-    @ManyToOne(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
-    private Recipe recipe;
+    //@ManyToOne(cascade= CascadeType.ALL, fetch = FetchType.EAGER)
+    //private Recipe recipe;
 
     //HELP: Skal den have recipe her? det havde den gamle (altså en movie)
     public Ingredient(String name, int price) {

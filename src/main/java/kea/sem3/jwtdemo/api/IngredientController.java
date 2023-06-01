@@ -3,6 +3,8 @@ package kea.sem3.jwtdemo.api;
 
 import kea.sem3.jwtdemo.dto.IngredientRequest;
 import kea.sem3.jwtdemo.dto.IngredientResponse;
+import kea.sem3.jwtdemo.dto.RecipeRequest;
+import kea.sem3.jwtdemo.dto.RecipeResponse;
 import kea.sem3.jwtdemo.service.IngredientService;
 import org.springframework.web.bind.annotation.*;
 
@@ -23,10 +25,21 @@ public class IngredientController {
         return ingredientService.getAllIngredients();
     }
 
-    @GetMapping("/{id}")
-    public IngredientResponse getIngredient(@PathVariable int id) throws Exception
+    @GetMapping("/{name}")
+    public IngredientResponse getIngredient(@PathVariable String name) throws Exception
     {
-        return ingredientService.getIngredient(id);
+        return ingredientService.getIngredient(name);
     }
+
+    @PostMapping
+    public IngredientResponse addIngredient(@RequestBody IngredientRequest body){
+        return ingredientService.addIngredient(body);
+    }
+
+    @DeleteMapping("/{name}")
+    public void deleteIngredient(@PathVariable String name){
+        ingredientService.deleteIngredient(name);
+    }
+
 
 }

@@ -28,12 +28,12 @@ public class Recipe {
     String description;
 
 
-    @OneToMany(mappedBy = "recipe", fetch = FetchType.EAGER)
+    /*@OneToMany(mappedBy = "recipe", fetch = FetchType.EAGER)
     private Set<Ingredient> ingredients = new HashSet<>();
     public void addIngredient(Ingredient sh){
         ingredients.add(sh);
         sh.setRecipe(this);
-    }
+    }*/
 
 
     public Recipe(String name, String description, Status mealType) {
