@@ -25,12 +25,8 @@ public class Recipe {
     String description;
 
 
-    /*@OneToMany(mappedBy = "recipe", fetch = FetchType.EAGER)
-    private Set<Ingredient> ingredients = new HashSet<>();
-    public void addIngredient(Ingredient sh){
-        ingredients.add(sh);
-        sh.setRecipe(this);
-    }*/
+   // @OneToMany(mappedBy = "recipe", cascade = CascadeType.ALL, orphanRemoval = true)
+    //private Set<RecipeLine> recipeLines = new HashSet<>();
 
 
     public Recipe(String name, String description, Status mealType) {

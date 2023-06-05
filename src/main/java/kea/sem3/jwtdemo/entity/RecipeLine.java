@@ -32,15 +32,18 @@ public class RecipeLine {
 
     private double amount;
 
-    public RecipeLine(Ingredient ingredient, MeasurementType measureType, double amount) {
-        //this.ingredient = ingredient;
+    public RecipeLine(Ingredient ingredient, MeasurementType measureType, double amount, Recipe recipe) {
+        this.ingredient = ingredient;
         this.measureType = measureType;
         this.amount = amount;
+        this.recipe = recipe;
     }
 
     public RecipeLine(RecipeLineRequest body){
         this.measureType = body.getMeasurementType();
         this.amount = body.getAmount();
+        this.recipe = body.getRecipe();
+        this.ingredient = body.getIngredient();
     }
 
     public enum MeasurementType {
