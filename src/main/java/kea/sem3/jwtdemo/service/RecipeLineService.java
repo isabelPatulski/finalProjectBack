@@ -1,5 +1,6 @@
 package kea.sem3.jwtdemo.service;
 
+import kea.sem3.jwtdemo.dto.IngredientResponse;
 import kea.sem3.jwtdemo.dto.RecipeLineRequest;
 import kea.sem3.jwtdemo.dto.RecipeLineResponse;
 import kea.sem3.jwtdemo.entity.RecipeLine;
@@ -17,9 +18,9 @@ public class RecipeLineService {
         this.recipeLineRepository = recipeLineRepository;
     }
 
-    public List<RecipeLineResponse> getRecipeLines(){
-        List<RecipeLine> recipeLines =  recipeLineRepository.findAll();
-        return RecipeLineResponse.getRecipeLinesFromEntities(recipeLines);
+
+    public List<RecipeLineResponse> getAllRecipeLines(){
+        return RecipeLineResponse.getRecipeLinesFromEntities(recipeLineRepository.findAll());
     }
     public RecipeLineResponse getRecipeLine(int id) throws Exception {
         RecipeLine recipeLine = recipeLineRepository.findById(id).orElseThrow(()->new Client4xxException("No recipeLine with this id exists"));

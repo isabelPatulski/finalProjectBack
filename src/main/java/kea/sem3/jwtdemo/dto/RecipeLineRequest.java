@@ -14,7 +14,7 @@ public class RecipeLineRequest {
 
     private RecipeLine.MeasurementType measurementType;
 
-    private String narration;
+    private double amount;
 
     public int recipeId;
 

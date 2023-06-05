@@ -18,9 +18,10 @@ public class RecipeLineController {
     }
 
     @GetMapping
-    public List<RecipeLineResponse> getRecipesLines(){
-        return recipeLineService.getRecipeLines();
+    public List<RecipeLineResponse> getAllRecipesLines(){
+        return recipeLineService.getAllRecipeLines();
     }
+
 
     @GetMapping("/{id}")
     public RecipeLineResponse getRecipeLine(@PathVariable int id) throws Exception {

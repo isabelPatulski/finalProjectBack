@@ -2,8 +2,6 @@ package kea.sem3.jwtdemo.api;
 
 import kea.sem3.jwtdemo.dto.UserRequest;
 import kea.sem3.jwtdemo.dto.UserResponse;
-import kea.sem3.jwtdemo.entity.User;
-import kea.sem3.jwtdemo.repositories.UserRepository;
 import kea.sem3.jwtdemo.service.AuthService;
 import org.springframework.web.bind.annotation.*;
 

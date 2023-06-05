@@ -2,6 +2,7 @@ package kea.sem3.jwtdemo.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
 import kea.sem3.jwtdemo.entity.Ingredient;
+import kea.sem3.jwtdemo.entity.Recipe;
 import kea.sem3.jwtdemo.entity.RecipeLine;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -15,13 +16,19 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RecipeLineResponse {
-    String narration;
+    int id;
+    Double amount;
     RecipeLine.MeasurementType measurementType;
+    Ingredient ingredient;
+    Recipe recipe;
 
 
     public RecipeLineResponse(RecipeLine recipeLine){
-        this.narration=recipeLine.getNarration();
+        this.amount=recipeLine.getAmount();
         this.measurementType = recipeLine.getMeasureType();
+        this.id = recipeLine.getId();
+        this.ingredient = recipeLine.getIngredient();
+        this.recipe = recipeLine.getRecipe();
     }
 
 
