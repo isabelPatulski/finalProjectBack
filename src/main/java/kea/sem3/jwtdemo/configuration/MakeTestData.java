@@ -1,6 +1,7 @@
 package kea.sem3.jwtdemo.configuration;
 
 import kea.sem3.jwtdemo.entity.Ingredient;
+import kea.sem3.jwtdemo.entity.Recipe;
 import kea.sem3.jwtdemo.repositories.*;
 ;
 
@@ -15,12 +16,13 @@ public class MakeTestData implements ApplicationRunner {
 
 
 
-    //RecipeRepository movieRepository;
+    RecipeRepository recipeRepository;
     IngredientRepository ingredientRepository;
 
 
-    public MakeTestData(IngredientRepository ingredientRepository) {
+    public MakeTestData(IngredientRepository ingredientRepository, RecipeRepository recipeRepository) {
         this.ingredientRepository = ingredientRepository;
+        this.recipeRepository = recipeRepository;
     }
 
     public  void makePlainTestData() {
@@ -47,6 +49,26 @@ public class MakeTestData implements ApplicationRunner {
         i4.setName("Æg");
         i4.setPrice(20);
         ingredientRepository.save(i4);
+
+        //Recipes
+
+        Recipe r1 = new Recipe();
+        r1.setName("Lasagne");
+        r1.setDescription("Lækker lasagne");
+        r1.setMealType(Recipe.Status.Dinner);
+        recipeRepository.save(r1);
+
+        Recipe r2 = new Recipe();
+        r2.setName("Boller i karry");
+        r2.setDescription("Smager godt");
+        r2.setMealType(Recipe.Status.Dinner);
+        recipeRepository.save(r2);
+
+        Recipe r3 = new Recipe();
+        r3.setName("Havregrød");
+        r3.setDescription("Lidt meh");
+        r3.setMealType(Recipe.Status.Breakfast);
+        recipeRepository.save(r3);
 
     }
 

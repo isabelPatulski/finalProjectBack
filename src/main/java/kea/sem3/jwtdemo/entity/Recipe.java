@@ -15,9 +15,6 @@ import java.util.Set;
 @NoArgsConstructor
 public class Recipe {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int id;
-
     @Column(length = 60)
     String name;
 

@@ -20,7 +20,7 @@ public class RecipeService {
             List<Recipe> recipes =  recipeRepository.findAll();
             return RecipeResponse.getRecipesFromEntities(recipes);
         }
-        public RecipeResponse getRecipe(int id) throws Exception {
+        public RecipeResponse getRecipe(String id) throws Exception {
             Recipe recipe = recipeRepository.findById(id).orElseThrow(()->new Client4xxException("No recipe with this id exists"));
             return new RecipeResponse(recipe);
         }
@@ -28,7 +28,7 @@ public class RecipeService {
             Recipe newRecipe = recipeRepository.save(new Recipe(body));
             return new RecipeResponse(newRecipe);
         }
-        public RecipeResponse editRecipe(RecipeRequest recipeToEdit, int recipeId){
+        public RecipeResponse editRecipe(RecipeRequest recipeToEdit, String recipeId){
             Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));
             recipe.setName(recipeToEdit.getName());
             recipe.setDescription(recipeToEdit.getDescription());
@@ -37,26 +37,26 @@ public class RecipeService {
         }
 
         //PATCH method for Title
-        public void updateName(int recipeId, String newName){
+        public void updateName(String recipeId, String newName){
             Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));
             recipe.setName(newName);
             recipeRepository.save(recipe);
         }
 
         //PATCH for Category
-        public void updateMealType(int recipeId, Recipe.Status newMealType){
+        public void updateMealType(String recipeId, Recipe.Status newMealType){
             Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));
             recipe.setMealType(newMealType);
             recipeRepository.save(recipe);
         }
 
-        public void updateDescription(int recipeId, String newDescription){
+        public void updateDescription(String recipeId, String newDescription){
         Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));
         recipe.setDescription(newDescription);
         recipeRepository.save(recipe);
         }
 
-        public void deleteMovie(int recipeId) {
+        public void deleteRecipe(String recipeId) {
             recipeRepository.deleteById(recipeId);
         }
     }
