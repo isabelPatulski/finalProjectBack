@@ -18,9 +18,9 @@ public class RecipeLineRequest {
 
     private double amount;
 
-    public Recipe recipe;
+    public String recipeName;
 
-    public Ingredient ingredient;
+    public String ingredientName;
 
 
 }

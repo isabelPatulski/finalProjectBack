@@ -21,29 +21,27 @@ public class RecipeLine {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private Recipe recipe;
+    String ingredientName;
 
-    @ManyToOne(fetch = FetchType.EAGER)
-    private Ingredient ingredient;
+    String recipeName;
 
     @Enumerated(EnumType.STRING)
     private MeasurementType measureType;
 
     private double amount;
 
-    public RecipeLine(Ingredient ingredient, MeasurementType measureType, double amount, Recipe recipe) {
-        this.ingredient = ingredient;
+    public RecipeLine(String ingredientName, MeasurementType measureType, double amount, String recipeName) {
+        this.ingredientName = ingredientName;
         this.measureType = measureType;
         this.amount = amount;
-        this.recipe = recipe;
+        this.recipeName = recipeName;
     }
 
     public RecipeLine(RecipeLineRequest body){
         this.measureType = body.getMeasurementType();
         this.amount = body.getAmount();
-        this.recipe = body.getRecipe();
-        this.ingredient = body.getIngredient();
+        this.recipeName = body.getRecipeName();
+        this.ingredientName = body.getIngredientName();
     }
 
     public enum MeasurementType {

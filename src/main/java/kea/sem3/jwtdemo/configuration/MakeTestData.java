@@ -75,36 +75,36 @@ public class MakeTestData implements ApplicationRunner {
 
         //RecipeLine
         RecipeLine rl1 = new RecipeLine();
-        rl1.setRecipe(r2);
-        rl1.setIngredient(i2);
+        rl1.setRecipeName(r2.getName());
+        rl1.setIngredientName(i2.getName());
         rl1.setMeasureType(RecipeLine.MeasurementType.CUP);
         rl1.setAmount(1);
         recipeLineRepository.save(rl1);
 
         RecipeLine rl2 = new RecipeLine();
-        rl2.setRecipe(r2);
-        rl2.setIngredient(i3);
+        rl2.setRecipeName(r2.getName());
+        rl2.setIngredientName(i3.getName());
         rl2.setMeasureType(RecipeLine.MeasurementType.GRAM);
         rl2.setAmount(300);
         recipeLineRepository.save(rl2);
 
         RecipeLine rl3 = new RecipeLine();
-        rl3.setRecipe(r2);
-        rl3.setIngredient(i1);
+        rl3.setRecipeName(r2.getName());
+        rl3.setIngredientName(i1.getName());
         rl3.setMeasureType(RecipeLine.MeasurementType.LITER);
         rl3.setAmount(0.5);
         recipeLineRepository.save(rl3);
 
         RecipeLine rl4 = new RecipeLine();
-        rl4.setRecipe(r3);
-        rl4.setIngredient(i3);
+        rl4.setRecipeName(r1.getName());
+        rl4.setIngredientName(i2.getName());
         rl4.setMeasureType(RecipeLine.MeasurementType.GRAM);
         rl4.setAmount(400);
         recipeLineRepository.save(rl4);
 
         RecipeLine rl5 = new RecipeLine();
-        rl5.setRecipe(r3);
-        rl5.setIngredient(i4);
+        rl5.setRecipeName(r1.getName());
+        rl5.setIngredientName(i4.getName());
         rl5.setMeasureType(RecipeLine.MeasurementType.PCS);
         rl5.setAmount(2);
         recipeLineRepository.save(rl5);

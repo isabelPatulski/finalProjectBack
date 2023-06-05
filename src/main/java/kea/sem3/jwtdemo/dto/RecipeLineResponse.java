@@ -19,16 +19,17 @@ public class RecipeLineResponse {
     int id;
     Double amount;
     RecipeLine.MeasurementType measurementType;
-    Ingredient ingredient;
-    Recipe recipe;
+    String ingredientName;
+    String recipeName;
 
 
     public RecipeLineResponse(RecipeLine recipeLine){
+        this.id=recipeLine.getId();
         this.amount=recipeLine.getAmount();
         this.measurementType = recipeLine.getMeasureType();
         this.id = recipeLine.getId();
-        this.ingredient = recipeLine.getIngredient();
-        this.recipe = recipeLine.getRecipe();
+        this.ingredientName = recipeLine.getIngredientName();
+        this.recipeName = recipeLine.getRecipeName();
     }
 
 
