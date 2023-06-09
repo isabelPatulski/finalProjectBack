@@ -34,5 +34,7 @@ public class RecipeLineController {
     }
 
     @DeleteMapping("/{id}")
-    public void deleteRecipeLine(@PathVariable int id){}
+    public void deleteRecipeLine(@PathVariable int id){
+        recipeLineService.deleteRecipeLine(id);
+    }
 }

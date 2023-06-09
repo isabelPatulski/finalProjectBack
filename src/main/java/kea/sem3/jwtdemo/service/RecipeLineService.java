@@ -31,8 +31,8 @@ public class RecipeLineService {
         return new RecipeLineResponse(newRecipeLine);
     }
 
-    public void deleteRecipeLine(int recipeId) {
-        recipeLineRepository.deleteById(recipeId);
+    public void deleteRecipeLine(int recipeLineId) {
+        recipeLineRepository.deleteById(recipeLineId);
     }
 
 }

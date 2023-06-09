@@ -18,7 +18,6 @@ import java.util.stream.Collectors;
 public class RecipeLineResponse {
     int id;
     Double amount;
-    RecipeLine.MeasurementType measurementType;
     String ingredientName;
     String recipeName;
 
@@ -26,7 +25,6 @@ public class RecipeLineResponse {
     public RecipeLineResponse(RecipeLine recipeLine){
         this.id=recipeLine.getId();
         this.amount=recipeLine.getAmount();
-        this.measurementType = recipeLine.getMeasureType();
         this.id = recipeLine.getId();
         this.ingredientName = recipeLine.getIngredientName();
         this.recipeName = recipeLine.getRecipeName();

@@ -1,6 +1,8 @@
 package kea.sem3.jwtdemo.dto;
 
 import com.fasterxml.jackson.annotation.JsonFormat;
+import kea.sem3.jwtdemo.entity.Ingredient;
+import kea.sem3.jwtdemo.entity.RecipeLine;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -14,6 +16,7 @@ import java.time.LocalTime;
 @NoArgsConstructor
 @AllArgsConstructor
 public class IngredientRequest {
+    private Ingredient.MeasurementType measurementType;
     private int price;
     private String name;
 

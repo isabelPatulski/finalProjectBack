@@ -34,30 +34,40 @@ public class MakeTestData implements ApplicationRunner {
 //Ingredients
 
         Ingredient i1 = new Ingredient();
-        i1.setName("Mel");
-        i1.setPrice(10);
+        i1.setName("Spaghetti");
+        i1.setPrice(0.02);
+        i1.setMeasureType(Ingredient.MeasurementType.GRAM);
         ingredientRepository.save(i1);
 
         Ingredient i2 = new Ingredient();
-        i2.setName("Salt");
-        i2.setPrice(15);
+        i2.setName("Olive oil");
+        i2.setPrice(1.05);
+        i1.setMeasureType(Ingredient.MeasurementType.TBSP);
         ingredientRepository.save(i2);
 
         Ingredient i3 = new Ingredient();
-        i3.setName("Sukker");
-        i3.setPrice(15);
+        i3.setName("Garlic clove");
+        i3.setPrice(0.5);
+        i3.setMeasureType(Ingredient.MeasurementType.PCS);
         ingredientRepository.save(i3);
 
         Ingredient i4 = new Ingredient();
-        i4.setName("Æg");
-        i4.setPrice(20);
+        i4.setName("Parmigiano-Reggiano");
+        i4.setPrice(0.4);
+        i4.setMeasureType(Ingredient.MeasurementType.GRAM);
         ingredientRepository.save(i4);
 
         //Recipes
 
         Recipe r1 = new Recipe();
-        r1.setName("Lasagne");
-        r1.setDescription("Lækker lasagne");
+        r1.setName("Pasta aglio olio");
+        r1.setDescription("1. Boil the spaghetti.\n" +
+                "\n" +
+                "2. Toast the garlic in olive oil.\n" +
+                "\n" +
+                "3. Stir the seasonings into the pasta, then stir in the garlic and oil. \n" +
+                "\n" +
+                "4. Toss with cheese. .\n");
         r1.setMealType(Recipe.Status.Dinner);
         recipeRepository.save(r1);
 
@@ -75,39 +85,29 @@ public class MakeTestData implements ApplicationRunner {
 
         //RecipeLine
         RecipeLine rl1 = new RecipeLine();
-        rl1.setRecipeName(r2.getName());
-        rl1.setIngredientName(i2.getName());
-        rl1.setMeasureType(RecipeLine.MeasurementType.CUP);
-        rl1.setAmount(1);
+        rl1.setRecipeName(r1.getName());
+        rl1.setIngredientName(i1.getName());
+        rl1.setAmount(450);
         recipeLineRepository.save(rl1);
 
         RecipeLine rl2 = new RecipeLine();
-        rl2.setRecipeName(r2.getName());
-        rl2.setIngredientName(i3.getName());
-        rl2.setMeasureType(RecipeLine.MeasurementType.GRAM);
-        rl2.setAmount(300);
+        rl2.setRecipeName(r1.getName());
+        rl2.setIngredientName(i2.getName());
+        rl2.setAmount(16);
         recipeLineRepository.save(rl2);
 
         RecipeLine rl3 = new RecipeLine();
-        rl3.setRecipeName(r2.getName());
-        rl3.setIngredientName(i1.getName());
-        rl3.setMeasureType(RecipeLine.MeasurementType.LITER);
-        rl3.setAmount(0.5);
+        rl3.setRecipeName(r1.getName());
+        rl3.setIngredientName(i3.getName());
+        rl3.setAmount(6);
         recipeLineRepository.save(rl3);
 
         RecipeLine rl4 = new RecipeLine();
         rl4.setRecipeName(r1.getName());
-        rl4.setIngredientName(i2.getName());
-        rl4.setMeasureType(RecipeLine.MeasurementType.GRAM);
-        rl4.setAmount(400);
+        rl4.setIngredientName(i4.getName());
+        rl4.setAmount(250);
         recipeLineRepository.save(rl4);
 
-        RecipeLine rl5 = new RecipeLine();
-        rl5.setRecipeName(r1.getName());
-        rl5.setIngredientName(i4.getName());
-        rl5.setMeasureType(RecipeLine.MeasurementType.PCS);
-        rl5.setAmount(2);
-        recipeLineRepository.save(rl5);
     }
 
 

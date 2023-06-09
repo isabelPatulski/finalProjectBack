@@ -14,8 +14,6 @@ import lombok.Setter;
 @AllArgsConstructor
 public class RecipeLineRequest {
 
-    private RecipeLine.MeasurementType measurementType;
-
     private double amount;
 
     public String recipeName;

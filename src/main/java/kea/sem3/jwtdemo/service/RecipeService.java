@@ -36,19 +36,13 @@ public class RecipeService {
             return new RecipeResponse(recipeRepository.save(recipe));
         }
 
-        //PATCH method for Title
+        //PATCH method for name
         public void updateName(String recipeId, String newName){
             Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));
             recipe.setName(newName);
             recipeRepository.save(recipe);
         }
 
-        //PATCH for Category
-        public void updateMealType(String recipeId, Recipe.Status newMealType){
-            Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));
-            recipe.setMealType(newMealType);
-            recipeRepository.save(recipe);
-        }
 
         public void updateDescription(String recipeId, String newDescription){
         Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));

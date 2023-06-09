@@ -21,20 +21,30 @@ public class Ingredient {
     String name;
 
     @Column
-    int price;
+    double price;
 
-    //@OneToMany(mappedBy = "ingredient", cascade = CascadeType.ALL, orphanRemoval = true)
-    //private Set<RecipeLine> recipeLines = new HashSet<>();
-
+    @Enumerated(EnumType.STRING)
+    private MeasurementType measureType;
 
     public Ingredient(String name, int price) {
         this.name = name;
         this.price = price;
+
     }
 
     public Ingredient(IngredientRequest body){
+        this.measureType = body.getMeasurementType();
         this.name = body.getName();
         this.price = body.getPrice();
+    }
+
+    public enum MeasurementType {
+        LITER,
+        CUP,
+        GRAM,
+        PCS,
+        TBS,
+        TBSP,
     }
 
 

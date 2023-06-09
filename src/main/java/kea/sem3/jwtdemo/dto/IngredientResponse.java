@@ -14,15 +14,14 @@ import java.util.stream.Collectors;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class IngredientResponse {
 
-    int price;
+    double price;
     String name;
-    //String recipe;
-
+    Ingredient.MeasurementType measurementType;
 
     public IngredientResponse(Ingredient ingredient){
         this.price=ingredient.getPrice();
         this.name = ingredient.getName();
-        //this.recipe= ingredient.getRecipe();
+        this.measurementType = ingredient.getMeasureType();
     }
 
 

@@ -25,30 +25,19 @@ public class RecipeLine {
 
     String recipeName;
 
-    @Enumerated(EnumType.STRING)
-    private MeasurementType measureType;
-
     private double amount;
 
-    public RecipeLine(String ingredientName, MeasurementType measureType, double amount, String recipeName) {
+    public RecipeLine(String ingredientName, double amount, String recipeName) {
         this.ingredientName = ingredientName;
-        this.measureType = measureType;
         this.amount = amount;
         this.recipeName = recipeName;
     }
 
     public RecipeLine(RecipeLineRequest body){
-        this.measureType = body.getMeasurementType();
         this.amount = body.getAmount();
         this.recipeName = body.getRecipeName();
         this.ingredientName = body.getIngredientName();
     }
 
-    public enum MeasurementType {
-        LITER,
-        CUP,
-        GRAM,
-        PCS,
-        TBS,
-    }
+
 }
