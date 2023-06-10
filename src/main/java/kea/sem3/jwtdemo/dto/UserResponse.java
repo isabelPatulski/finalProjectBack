@@ -17,8 +17,6 @@ import java.util.stream.Collectors;
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class UserResponse {
     int id;
-
-    String username;
     String email;
     @JsonFormat(pattern = "dd-MM-yyyy HH:mm:ss",shape = JsonFormat.Shape.STRING)
     LocalDateTime created;
@@ -27,7 +25,6 @@ public class UserResponse {
     LocalDateTime updated;
 
     public UserResponse(User user) {
-        this.username = user.getUsername();
         this.email = user.getEmail();
 
     }

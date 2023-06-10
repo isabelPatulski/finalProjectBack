@@ -21,13 +21,11 @@ public class User {
     @Id
     private String email;
     @Column(length = 100)
-    private String username;
     private String password;
     boolean loggedIn;
 
 
-    public User(String password, String username, String email, boolean loggedIn) {
-        this.username = username;
+    public User(String password, String email, boolean loggedIn) {
         this.email = email;
         this.password=password;
         this.loggedIn =loggedIn;
@@ -36,7 +34,6 @@ public class User {
     }
 
     public User(UserRequest body) {
-        this.username = body.getUsername();
         this.email = body.getEmail();
         this.password = body.getPassword();
     }

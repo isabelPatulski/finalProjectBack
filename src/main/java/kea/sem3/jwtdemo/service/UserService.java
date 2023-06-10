@@ -3,7 +3,6 @@ package kea.sem3.jwtdemo.service;
 import kea.sem3.jwtdemo.dto.UserRequest;
 import kea.sem3.jwtdemo.dto.UserResponse;
 import kea.sem3.jwtdemo.entity.User;
-import kea.sem3.jwtdemo.error.Client4xxException;
 import kea.sem3.jwtdemo.repositories.UserRepository;
 import org.springframework.stereotype.Service;
 
@@ -34,14 +33,12 @@ public class UserService {
 
     public UserResponse editUser(UserRequest userToEdit, String email){
         User user = userRepository.findByEmail(email);//orElseThrow(()-> new Client4xxException("No user with provided ID found"));
-        user.setUsername(userToEdit.getUsername());
         user.setEmail(userToEdit.getEmail());
         return new UserResponse(userRepository.save(user));
     }
 
-//Mangler
-    public void deleteUser(int customerId) {
-        userRepository.deleteById(customerId);
+    public void deleteUser(int userId) {
+        userRepository.deleteById(userId);
     }
 }
 
