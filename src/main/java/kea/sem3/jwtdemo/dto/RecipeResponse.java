@@ -17,18 +17,17 @@ import java.util.stream.Collectors;
 @NoArgsConstructor
 @JsonInclude(JsonInclude.Include.NON_NULL)
 public class RecipeResponse {
-    int id;
     String name;
     String description;
-    //help
     Recipe.Status mealType;
-    @JsonIgnore
-    Set<Ingredient> showings;
+    Double price;
+
 
     public RecipeResponse(Recipe recipe) {
         this.name = recipe.getName();
         this.mealType= recipe.getMealType();
         this.description = recipe.getDescription();
+        this.price = recipe.getPrice();
     }
 
     public static List<RecipeResponse> getRecipesFromEntities(List<Recipe> recipes){
