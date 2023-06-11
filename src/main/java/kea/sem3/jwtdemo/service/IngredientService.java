@@ -21,7 +21,7 @@ public class IngredientService {
     }
 
     public IngredientResponse getIngredient(String id){
-        Ingredient ingredient = ingredientRepository.findById(id).orElseThrow(()-> new Client4xxException("No ingredient with reservation id:" + id));
+        Ingredient ingredient = ingredientRepository.findById(id).orElseThrow(()-> new Client4xxException("No ingredient with id:" + id));
         return new IngredientResponse(ingredient);
     }
 
@@ -35,7 +35,7 @@ public class IngredientService {
     }
 
     public void deleteIngredient (String name) {
-        Ingredient ingredientToDelete = ingredientRepository.findById(name).orElseThrow(()-> new Client4xxException("No ingredient with reservation id:" + name));
+        Ingredient ingredientToDelete = ingredientRepository.findById(name).orElseThrow(()-> new Client4xxException("No ingredient with id:" + name));
         ingredientRepository.delete(ingredientToDelete);
     }
 

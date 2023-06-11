@@ -19,7 +19,6 @@ import java.util.stream.Collectors;
 @ControllerAdvice
 public class ValidationHandler extends ResponseEntityExceptionHandler {
 
-    //This provides a decent error response when spring validation fails
     @Override
     protected ResponseEntity<Object> handleMethodArgumentNotValid(MethodArgumentNotValidException ex,
                                                                   HttpHeaders headers, HttpStatus status, WebRequest request) {

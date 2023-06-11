@@ -1,6 +1,5 @@
 package kea.sem3.jwtdemo.service;
 
-import kea.sem3.jwtdemo.dto.IngredientResponse;
 import kea.sem3.jwtdemo.dto.RecipeLineRequest;
 import kea.sem3.jwtdemo.dto.RecipeLineResponse;
 import kea.sem3.jwtdemo.entity.RecipeLine;

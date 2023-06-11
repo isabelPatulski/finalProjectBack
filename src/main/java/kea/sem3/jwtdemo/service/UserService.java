@@ -21,7 +21,7 @@ public class UserService {
         return UserResponse.getUsersFromEntities(users);
     }
     public UserResponse getUser(String email) throws Exception {
-        User user = userRepository.findByEmail(email);//.orElseThrow(()->new Client4xxException("No user with this email exists"));
+        User user = userRepository.findByEmail(email);
         return new UserResponse(user);
     }
 
@@ -32,7 +32,7 @@ public class UserService {
     }
 
     public UserResponse editUser(UserRequest userToEdit, String email){
-        User user = userRepository.findByEmail(email);//orElseThrow(()-> new Client4xxException("No user with provided ID found"));
+        User user = userRepository.findByEmail(email);
         user.setEmail(userToEdit.getEmail());
         return new UserResponse(userRepository.save(user));
     }

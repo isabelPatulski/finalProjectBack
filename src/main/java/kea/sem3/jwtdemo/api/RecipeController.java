@@ -37,14 +37,6 @@ public class RecipeController {
             return recipeService.editRecipe(body,id);
         }
 
-        @PatchMapping ("/{id}/{newName}")
-        public void editName(@PathVariable String id,@PathVariable String newName) throws Exception {
-            recipeService.updateName(id,newName);
-        }
-        @PatchMapping ("/{id}/{newDescription}")
-        public void editDescription(@PathVariable String id,@PathVariable String newDescription) throws Exception {
-            recipeService.updateDescription(id,newDescription);
-        }
 
         @DeleteMapping("/{id}")
         public void deleteRecipe(@PathVariable String id){

@@ -1,8 +1,6 @@
 package kea.sem3.jwtdemo.dto;
 
 import com.fasterxml.jackson.annotation.JsonInclude;
-import kea.sem3.jwtdemo.entity.Ingredient;
-import kea.sem3.jwtdemo.entity.Recipe;
 import kea.sem3.jwtdemo.entity.RecipeLine;
 import lombok.Getter;
 import lombok.NoArgsConstructor;

@@ -6,11 +6,9 @@ import lombok.*;
 
 import javax.persistence.*;
 import java.sql.Connection;
-import java.sql.DriverManager;
 import java.sql.ResultSet;
 import java.sql.Statement;
-import java.util.HashSet;
-import java.util.Set;
+
 
 @Entity
 @Getter @Setter
@@ -53,8 +51,8 @@ public class Recipe {
             DbConnection connect = DbConnection.getInstance();
             Connection con = connect.connect();
             Statement stmt=con.createStatement();
-            String sql = "SELECT SUM(recipe_line.amount*ingredient.price) FROM pizzisalle.recipe_line\n" +
-                    "inner join pizzisalle.ingredient \n" +
+            String sql = "SELECT SUM(recipe_line.amount*ingredient.price) FROM finalProject.recipe_line\n" +
+                    "inner join finalProject.ingredient \n" +
                     "on ingredient.name = recipe_line.ingredient_name\n" +
                     "AND  recipe_line.recipe_name = '"+this.name+"'";
             ResultSet rs=stmt.executeQuery(sql);

@@ -35,20 +35,6 @@ public class RecipeService {
             return new RecipeResponse(recipeRepository.save(recipe));
         }
 
-        //PATCH method for name
-        public void updateName(String recipeId, String newName){
-            Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));
-            recipe.setName(newName);
-            recipeRepository.save(recipe);
-        }
-
-
-        public void updateDescription(String recipeId, String newDescription){
-        Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));
-        recipe.setDescription(newDescription);
-        recipeRepository.save(recipe);
-        }
-
         public void deleteRecipe(String recipeId) {
             recipeRepository.deleteById(recipeId);
         }

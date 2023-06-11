@@ -2,7 +2,6 @@ package kea.sem3.jwtdemo.error;
 
 import org.springframework.http.HttpStatus;
 
-//@ResponseStatus(value = HttpStatus.BAD_REQUEST)
 public class Client4xxException extends RuntimeException{
     HttpStatus status;
     public Client4xxException(String message) {

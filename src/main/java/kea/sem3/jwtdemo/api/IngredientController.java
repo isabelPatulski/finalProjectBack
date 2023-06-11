@@ -3,8 +3,6 @@ package kea.sem3.jwtdemo.api;
 
 import kea.sem3.jwtdemo.dto.IngredientRequest;
 import kea.sem3.jwtdemo.dto.IngredientResponse;
-import kea.sem3.jwtdemo.dto.RecipeRequest;
-import kea.sem3.jwtdemo.dto.RecipeResponse;
 import kea.sem3.jwtdemo.service.IngredientService;
 import org.springframework.web.bind.annotation.*;
 
