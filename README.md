@@ -1,3 +1,5 @@
-A link to your frontend repository
-  https://github.com/CasperAa/Cinema_Project_Frontend
-  
+Final project 
+Isabel Patulski Nielsen
+KEA
+Link to frontend repository
+https://github.com/isabelPatulski/finalProjectFront  
