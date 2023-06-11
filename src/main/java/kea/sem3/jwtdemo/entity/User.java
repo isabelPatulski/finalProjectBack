@@ -1,5 +1,6 @@
 package kea.sem3.jwtdemo.entity;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import kea.sem3.jwtdemo.dto.UserRequest;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -7,6 +8,7 @@ import lombok.Setter;
 import lombok.ToString;
 
 import javax.persistence.*;
+
 
 @Entity
 @Getter

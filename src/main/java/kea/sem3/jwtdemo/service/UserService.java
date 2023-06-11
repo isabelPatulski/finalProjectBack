@@ -11,6 +11,7 @@ import java.util.List;
 @Service
 public class UserService {
     UserRepository userRepository;
+    public static User  currentUser;    // Current logged in user, if any
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -21,7 +22,7 @@ public class UserService {
         return UserResponse.getUsersFromEntities(users);
     }
     public UserResponse getUser(String email) throws Exception {
-        User user = userRepository.findByEmail(email);
+        User user = userRepository.findByEmail(email);//.orElseThrow(()->new Client4xxException("No user with this email exists"));
         return new UserResponse(user);
     }
 
@@ -32,7 +33,7 @@ public class UserService {
     }
 
     public UserResponse editUser(UserRequest userToEdit, String email){
-        User user = userRepository.findByEmail(email);
+        User user = userRepository.findByEmail(email);//orElseThrow(()-> new Client4xxException("No user with provided ID found"));
         user.setEmail(userToEdit.getEmail());
         return new UserResponse(userRepository.save(user));
     }
@@ -40,5 +41,31 @@ public class UserService {
     public void deleteUser(int userId) {
         userRepository.deleteById(userId);
     }
-}
 
+    public static void logoutUser() {
+        currentUser =  null;
+    }
+    public UserResponse loginUser(UserRequest body) {
+        User user = userRepository.findByEmail(body.getEmail());
+        if (user.getPassword().equals(body.getPassword()))
+        {
+            user.setLoggedIn(true);
+            currentUser =  user;
+        }
+        else
+        {
+            user.setLoggedIn(false);
+            currentUser =  null;
+        }
+        return new UserResponse(currentUser);
+    }
+
+    public static boolean isLoggedIn()
+    {
+        if (currentUser != null)
+        {
+            return currentUser.getLoggedIn();
+        }
+        return false;
+    }
+}
