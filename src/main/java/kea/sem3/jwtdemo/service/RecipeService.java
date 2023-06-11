@@ -30,7 +30,6 @@ public class RecipeService {
         }
         public RecipeResponse editRecipe(RecipeRequest recipeToEdit, String recipeId){
             Recipe recipe = recipeRepository.findById(recipeId).orElseThrow(()-> new Client4xxException("No recipe with provided ID found"));
-            recipe.setName(recipeToEdit.getName());
             recipe.setDescription(recipeToEdit.getDescription());
             recipe.setMealType(recipeToEdit.getMealType());
             return new RecipeResponse(recipeRepository.save(recipe));

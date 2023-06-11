@@ -47,22 +47,21 @@ public class Recipe {
         Breakfast, Lunch, Dinner, Dessert;
     }
 
-    public double getPrice(){
+    public double getPrice() {
         Double ret = 0.0;
         try{
-            Class.forName("com.mysql.cj.jdbc.Driver");
-            Connection con= DriverManager.getConnection(
-                    "jdbc:mysql://localhost:3306/finalProject","root","12345678");
+            DbConnection connect = DbConnection.getInstance();
+            Connection con = connect.connect();
             Statement stmt=con.createStatement();
-            String sql = "SELECT SUM(recipe_line.amount*ingredient.price) FROM finalProject.recipe_line\n" +
-                    "inner join finalProject.ingredient \n" +
+            String sql = "SELECT SUM(recipe_line.amount*ingredient.price) FROM pizzisalle.recipe_line\n" +
+                    "inner join pizzisalle.ingredient \n" +
                     "on ingredient.name = recipe_line.ingredient_name\n" +
                     "AND  recipe_line.recipe_name = '"+this.name+"'";
             ResultSet rs=stmt.executeQuery(sql);
             if (rs.next()) {
+                System.out.println("Count is"+rs.getDouble(1));
                 ret = rs.getDouble(1);
             }
-            con.close();
         }catch(Exception e){ System.out.println(e);}
         return ret;
     }
