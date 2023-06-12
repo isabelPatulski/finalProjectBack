@@ -48,17 +48,17 @@ public class Recipe {
     public double getPrice() {
         Double ret = 0.0;
         try{
-            DbConnection connect = DbConnection.getInstance();
+            DbConnection connect = DbConnection.getInstance(); //Get connection from Singleton
             Connection con = connect.connect();
             Statement stmt=con.createStatement();
+            //Calculate price by finding all related recipeLines, using lineAmount and related ingredientPrice
             String sql = "SELECT SUM(recipe_line.amount*ingredient.price) FROM finalProject.recipe_line\n" +
                     "inner join finalProject.ingredient \n" +
                     "on ingredient.name = recipe_line.ingredient_name\n" +
                     "AND  recipe_line.recipe_name = '"+this.name+"'";
             ResultSet rs=stmt.executeQuery(sql);
             if (rs.next()) {
-                System.out.println("Count is"+rs.getDouble(1));
-                ret = rs.getDouble(1);
+                ret = rs.getDouble(1); //Sum is returned in first (only) column
             }
         }catch(Exception e){ System.out.println(e);}
         return ret;
