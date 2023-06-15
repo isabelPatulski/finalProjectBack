@@ -30,6 +30,8 @@ public class Recipe {
     @Column(insertable = false, updatable = false)
     Double price;
 
+    static Connection connection = DbConnection.connect(); //Singleton
+
     public Recipe(String name, String description, Status mealType) {
         this.name = name;
         this.mealType = mealType;
@@ -48,12 +50,10 @@ public class Recipe {
     public double getPrice() {
         Double ret = 0.0;
         try{
-            DbConnection connect = DbConnection.getInstance(); //Get connection from Singleton
-            Connection con = connect.connect();
-            Statement stmt=con.createStatement();
+            Statement stmt=connection.createStatement();
             //Calculate price by finding all related recipeLines, using lineAmount and related ingredientPrice
-            String sql = "SELECT SUM(recipe_line.amount*ingredient.price) FROM finalProject.recipe_line\n" +
-                    "inner join finalProject.ingredient \n" +
+            String sql = "SELECT SUM(recipe_line.amount*ingredient.price) FROM "+DbConnection.dbName+".recipe_line\n" +
+                    "inner join "+DbConnection.dbName+".ingredient \n" +
                     "on ingredient.name = recipe_line.ingredient_name\n" +
                     "AND  recipe_line.recipe_name = '"+this.name+"'";
             ResultSet rs=stmt.executeQuery(sql);

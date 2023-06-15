@@ -11,7 +11,7 @@ import java.util.List;
 @Service
 public class UserService {
     UserRepository userRepository;
-    public static User  currentUser;    // Current logged in user, if any
+    public static User  currentUser;    // Bruger der er logget ind lige nu (hvis der er nogen)
 
     public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
@@ -38,6 +38,7 @@ public class UserService {
         return new UserResponse(userRepository.save(user));
     }
 
+    //Bliver ikke brugt endnu men kunne bruges i fremtiden
     public void deleteUser(int userId) {
         userRepository.deleteById(userId);
     }
@@ -45,6 +46,8 @@ public class UserService {
     public static void logoutUser() {
         currentUser =  null;
     }
+
+
     public UserResponse loginUser(UserRequest body) {
         User user = userRepository.findByEmail(body.getEmail());
         if (user.getPassword().equals(body.getPassword()))
