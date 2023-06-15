@@ -12,7 +12,8 @@ public class DbConnection {
     private static String user = "root";
     private static String password = "12345678";
 
-    private static Connection connection;          //Statisk variabel til genbrug af connection databasen
+    private static Connection connection;          //Statisk variabel til genbrug af
+    // connection databasen
 
     static void createConnection() {
         try {
@@ -31,7 +32,8 @@ public class DbConnection {
     }
 
     public static Connection connect() {
-        if (connection == null) { //Hvis ikke der allerede er oprettet en forbindelse til JDBC-driver og database, så opret en forbindelse
+        if (connection == null) { //Hvis ikke der allerede er oprettet en forbindelse til JDBC-
+            // driver og database, så opret en forbindelse
             createConnection(); //Kalder statisk metode
         }
         return connection; //Retunere ny eller eksisterende connection

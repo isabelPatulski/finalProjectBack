@@ -42,7 +42,7 @@ public class RecipeService {
         return new RecipeResponse(recipeRepository.save(recipe));
     }
 
-    public void deleteRecipe(String recipeId) {
+    public void deleteRecipe(String recipeId) { //Manuel cascade sletning da hibernate drillede
         try {
             Statement stmt = connection.createStatement();
             String sql = "DELETE FROM " + DbConnection.dbName + ".recipe_line\n" +
